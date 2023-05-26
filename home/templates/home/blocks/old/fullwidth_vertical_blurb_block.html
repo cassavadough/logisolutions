@@ -1,0 +1,42 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+  <!-- Section: what we -->
+    <section>
+      <div class="container">
+        <div class="section-title text-center">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 class="mt-0 text-uppercase">{{ value.title }} <span class="text-theme-colored font-weight-600"> {{ value.title_colored }}</span></h2>
+              <div class="title-icon">
+                <i class="flaticon-charity-hand-holding-a-heart"></i>
+              </div>
+              <p class="lead font-weight-400">{{  value.content_text|richtext }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-content text-center">
+          <div class="row">
+            {% for blurb in value.blurbs %}
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="icon-box iconbox-theme-colored pl-0 pr-0">
+                              <a href="#" class="">
+{#                                <img src="images/flaticon-png/small/5.png" width="90" alt="">#}
+                                {% image blurb.blurb_image_90x90 fill-90x90 %}
+                              </a>
+                              <h3 class="mt-20 mb-20 font-weight-600"><a href="#">{{ blurb.title }}</a></h3>
+                              {{ blurb.content_text }}
+                                {% if blurb.button_label %}
+                              <a class="btn btn-default btn-theme-colored btn-sm mt-10" href="{{ blurb.button_page_url }}">{{ blurb.button_label }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+

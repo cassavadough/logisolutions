@@ -1,0 +1,195 @@
+
+/*** 
+
+====================================================================
+    Banner Section
+====================================================================
+
+***/
+.banner-section {
+    position: relative;
+}
+
+.banner-section .slide-item {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 250px 0 50px;
+    overflow: hidden;
+    min-height: 830px;
+}
+
+.banner-section .bg-image {
+    @include overlay;
+    @include background;
+}
+
+
+.banner-section .content-box {
+    position: relative;
+    padding-left: 25px;
+    .line{
+        position: absolute;
+        top: 8px;
+        left:0px;
+        bottom: 105px;
+        width: 4px;
+        background-color: var(--bg-theme-color2);
+    }
+    .sub-title{
+        font-size: 16px;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: .5;
+        display: block;
+        margin-bottom: 10px;
+    }
+     h2 {
+        position: relative;
+        display: block;
+        font-size: 70px;
+        line-height: 75px;
+        color: #ffffff;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+    .btn-box{
+        margin-left: -25px;
+        .theme-btn:hover{
+            color: var(--bg-theme-color2);
+        }
+        .theme-btn:before{
+            background-color: #ffffff;
+        }
+    }
+}
+
+.banner-section .image-box{
+    position: relative;
+    padding-left: 60px;
+    margin-right: -170px;
+    .image{
+        margin-bottom: 0;
+        img{
+            filter: drop-shadow(-10px -10px 20px rgba(0,0,0,.20));
+        }
+    }
+    .video-box{
+        position: absolute;
+        left: 50px;
+        top: -10px;
+        z-index: 3;
+        .title{
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 1.2em;
+            opacity: .5;
+        }
+        .play-now{
+            position: relative;
+            display: inline-block;
+            margin-left: 100px;
+            margin-bottom: -10px;
+            .icon{
+                height: 85px;
+                width: 85px;
+                line-height: 85px;
+                font-size: 20px;
+                background-color: var(--bg-theme-color2);
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+
+/* Animate 1 */
+.owl-carousel .animate-7,
+.owl-carousel .animate-6,
+.owl-carousel .animate-5,
+.owl-carousel .animate-4,
+.owl-carousel .animate-3,
+.owl-carousel .animate-2,
+.owl-carousel .animate-1 {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 500ms ease;
+}
+
+.owl-carousel .animate-x{
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 500ms ease;
+}
+
+.owl-carousel .active .animate-1,
+.owl-carousel .active .animate-2,
+.owl-carousel .active .animate-3,
+.owl-carousel .active .animate-4,
+.owl-carousel .active .animate-5,
+.owl-carousel .active .animate-6,
+.owl-carousel .active .animate-7 {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.owl-carousel .active .animate-2 {
+    transition-delay: 300ms;
+}
+.owl-carousel .active .animate-3 {
+    transition-delay: 600ms;
+}
+.owl-carousel .active .animate-4 {
+    transition-delay: 900ms;
+}
+.owl-carousel .active .animate-5 {
+    transition-delay: 1200ms;
+}
+.owl-carousel .active .animate-6 {
+    transition-delay: 1500ms;
+}
+.owl-carousel .active .animate-7 {
+    transition-delay: 1800ms;
+}
+
+.banner-carousel .owl-nav {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: -65px;
+}
+
+.banner-carousel .owl-next,
+.banner-carousel .owl-prev {
+    display: block;
+    margin:10px 0;
+    height: 50px;
+    width: 50px;
+    color: #ffffff;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    font-size: 20px;
+    line-height: 48px;
+    font-weight: 700;
+    text-align: center;
+    opacity: .20;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.banner-carousel .owl-next:hover,
+.banner-carousel .owl-prev:hover {
+    opacity: 1;
+}
+
+
+
+
+

@@ -1,0 +1,73 @@
+/*** 
+
+====================================================================
+Section Title
+====================================================================
+
+***/
+
+.sec-title {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.sec-title .sub-title {
+    position: relative;
+    display: block;
+    font-size: 14px;
+    color: var(--theme-color4);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.sec-title .sub-title:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 42px;
+    background: var(--bg-theme-color2);
+    content: "";
+}
+
+.sec-title h1{
+    position: relative;
+    line-height: 1.2em;
+    color: var(--theme-color1);
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.sec-title h2 {
+    position: relative;
+    line-height: 1.2em;
+    color: var(--theme-color1);
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.sec-title .text{
+    font-size: 16px;
+    line-height: 30px;
+    color: var(--theme-color4);
+    margin-top: 30px;
+}
+
+.sec-title.text-center .sub-title:before {
+    left: 50%;
+    margin-left: -21px;
+}
+
+.sec-title.light{
+    h2,
+    h1{
+        color: #fff;
+    }
+    .text,
+    .sub-title{
+        color: #8fa1ae;
+    }
+}

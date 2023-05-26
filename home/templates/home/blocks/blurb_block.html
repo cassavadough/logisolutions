@@ -1,0 +1,17 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+        <div class="col-xl-6 col-md-6">
+            <div class="feature-box d-flex">
+                <div class="feature-part-icon mr-30">
+                    {% image value.icon_100x100 fill-100x100  %}
+<!--                    <img src="assets/images/feat-icon-2.png" class="filter-shadow-2" alt="Icon">-->
+                </div>
+                <div class="feature-txt">
+                    <h3 class="feature-sub-title mt--7 mb--8"><a href="{{value.page_url}}">{{ value.title }}</a></h3>
+                    <div class="divider mt-10 mb-20 {{ value.gradient }} rounded-pill"></div>
+                    <p class="mt--6 mb--8">{{ value.sub_text }}</p>
+                </div>
+            </div>
+        </div>

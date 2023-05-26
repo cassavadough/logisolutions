@@ -1,0 +1,93 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+	{% if value.image_right %}
+
+	<!-- Start What We Do Area -->
+		<section class="what-we-do-area ptb-100 general-padding"
+
+		{% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+
+		>
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="what-we-do-content">
+							<span class="top-title">{{ value.title }}</span>
+							<h2>{{value.intro}}</h2>
+							{{ value.text }}
+
+							{% if value.button_label %}
+							<a href="{{value.page_url.url}}" class="default-btn">
+								{{ value.button_label }}
+							</a>
+							{% endif %}
+
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="what-we-do-img">
+<!--							<img src="assets/images/what-we-do-img.png" alt="Image">-->
+							{% image value.image_700x700 fill-700x700 alt="Image" %}
+
+<!--							<div class="what-we-do-play">-->
+<!--								<a href="https://www.youtube.com/watch?v=dieB9zAJXGE" class="video-btn popup-youtube">-->
+<!--									<i class="ri-play-fill"></i>-->
+<!--								</a>-->
+<!--							</div>-->
+
+<!--							<img src="assets/images/what-we-do-shape.png" class="what-we-do-shape" alt="Image">-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--
+				<div class="what-we-do-shape-area">
+				<img src="assets/images/what-we-do-shape-area.png" alt="Image">
+			</div>
+			-->
+		</section>
+		<!-- End What We Do Area -->
+
+	{% else %}
+		<!-- Start About Area -->
+		<section class="about-area ptb-100 general-padding">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="about-img mr-15">
+                            {% image value.image_700x700 fill-700x700 alt="Image" %}
+<!--							<img src="assets/images/about-img.png" alt="Image">-->
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="about-content ml-15">
+							<span class="top-title">{{ value.title }}</span>
+							<h2>{{ value.intro }}</h2>
+							{{ value.text }}
+
+							{% if value.button_label %}
+							<a href="{{value.page_url.url}}" class="default-btn">
+								{{ value.button_label }}
+							</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End About Area -->
+	{% endif %}
+
+{% endif %}

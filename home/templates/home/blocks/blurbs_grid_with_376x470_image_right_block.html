@@ -1,0 +1,38 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+ <!-- feature begin -->
+    <div class="feature pt-120 pb-50">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-8 col-lg-8">
+                    <div class="part-txt mb-70">
+                        <div class="section-heading mb-70">
+                            <h2 class="section-title mt--8 mb-25">{{ value.title }}</h2>
+                            <p class="heading-sub-txt mt--1 mb--8">{{ value.sub_text }}</div>
+                        <div class="row r-gap-40 has-gradient-service mb-30 mb-lg-0">
+
+                            {% for blurb in value.blurbs %}
+
+                                        {% include_block blurb %}
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="feature-img p-relative ml-30 mb-70">
+<!--                        <img src="assets/images/feature-img.jpg" alt="image">-->
+                        {% image value.photo_376x470 fill-360x470 %}
+                        <a href="#" data-video-id="6stlCkUDG_s" class="video-btn bg-gradient-1 p-absolute bottom-0 right-0 text-center text-white"><i class="icofont-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- feature end -->
+
+{% endif %}

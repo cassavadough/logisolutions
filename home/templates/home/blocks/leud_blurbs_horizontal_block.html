@@ -1,0 +1,509 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<!--    format = blocks.ChoiceBlock(choices=[-->
+<!--        ('left', 'Left Aligned'),-->
+<!--        ('center', 'Centered'),-->
+<!--        ('3_grid', '3 Grid'),-->
+<!--        ('on_background_image', 'On Background Image'),-->
+<!--    ], icon='cup', )-->
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+    {% if value.format in 'left' %}
+
+        <!-- Start Our Mission Area -->
+		<section class="our-mission-area pt-100 pb-70 general-padding"
+
+				 {% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+
+		>
+			<div class="container">
+				<div class="section-title section-title-left">
+					<span class="top-title">{{ value.title }}</span>
+					<h2>{{ value.text }}</h2>
+				</div>
+
+				<div class="row justify-content-center">
+					{% for blurb in value.blurbs %}
+					<div class="col-lg-3 col-sm-6">
+						<div class="single-mission">
+<!--							<img src="assets/images/icon/icon-1.png" alt="Image">-->
+							{% if  blurb.icon_100x100  %}
+								{% image blurb.icon_100x100 fill-100x100 alt="Image" %}
+							{% endif %}
+							<h3>{{ blurb.title }}</h3>
+							<p>{{ blurb.sub_text }}</p>
+						</div>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
+		<!-- End Our Mission Area -->
+
+
+    {% elif value.format in 'center' %}
+
+
+        <!-- Start Our Mission Area -->
+		<section class="our-mission-area pt-100 pb-70 general-padding"
+				 {% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+		>
+			<div class="container">
+				<div class="section-title">
+					<span class="top-title">{{ value.title }}</span>
+					<h2>{{ value.text }}</h2>
+				</div>
+
+				<div class="row justify-content-center">
+
+					{% for blurb in value.blurbs %}
+					<div class="col-lg-3 col-sm-6">
+						<div class="single-mission style-two">
+							{% if  blurb.icon_100x100  %}
+								{% image blurb.icon_100x100 fill-100x100 alt="Image" %}
+							{% endif %}
+							<h3>{{ blurb.title }}</h3>
+							<p>{{ blurb.sub_text }}</p>
+						</div>
+					</div>
+					{% endfor %}
+
+
+				</div>
+			</div>
+
+			<div class="left-shape-1">
+				<img src="{% static 'leud_theme/assets/images/left-shape-1.png' %}" alt="Image">
+			</div>
+			<div class="mission-dot-shape">
+				<img src="{% static 'leud_theme/assets/images/mission-dot-shape.png' %}" alt="Image">
+			</div>
+		</section>
+		<!-- End Our Mission Area -->
+
+
+    {% elif value.format in '3_grid' %}
+
+        	<!-- Start How We Can Area -->
+		<section class="how-we-can-area pt-100 pb-70 general-padding"
+
+						 {% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+		>
+			<div class="container">
+				<div class="section-title">
+					<span class="top-title">{{ value.title }}</span>
+					<h2>{{ value.text }}</h2>
+				</div>
+
+				<div class="row justify-content-center">
+
+					{% for blurb in value.blurbs %}
+					<div class="col-lg-4 col-md-6">
+						<div class="single-how-we-can">
+							{% if  blurb.icon_100x100  %}
+								{% image blurb.icon_100x100 fill-100x100 alt="Image" %}
+							{% endif %}
+							<h3>{{ blurb.title  }}</h3>
+							<p> {{ blurb.sub_text  }}</p>
+						</div>
+					</div>
+					{% endfor %}
+
+
+				</div>
+			</div>
+
+			<div class="left-shape-2">
+<!--				<img src="{% static 'leud_theme/assets/images/left-shape-2.png' %}" alt="Image">-->
+			</div>
+		</section>
+		<!-- End How We Can Area -->
+
+
+    {% else %}
+
+
+			<!-- Start Our Mission Area -->
+		<section class="our-mission-area style-three pt-100 general-padding">
+			<div class="container">
+				<div class="section-title section-white-title section-title-three">
+					<span class="top-title">{{ value.title }}</span>
+					<span class="watermark">{{value.title}}</span>
+					<h2>{{ value.text }}</h2>
+				</div>
+
+				<div class="row justify-content-center">
+
+					{% for blurb in value.blurbs %}
+					<div class="col-lg-3 col-md-6">
+						<div class="single-mission style-three">
+							{% if  blurb.icon_100x100  %}
+								{% image blurb.icon_100x100 fill-100x100 alt="Image" %}
+							{% endif %}
+							<span>01</span>
+							<h2>{{ blurb.title }}</h2>
+							<p>{{ blurb.sub_text }}</p>
+						</div>
+					</div>
+					{% endfor %}
+
+
+				</div>
+
+				<div class="video-bg">
+					<img src="{% static 'leud_theme/assets/images/video-bg.jpg' %}" alt="Image">
+
+<!--					<div class="what-we-do-play">-->
+<!--						<a href="https://www.youtube.com/watch?v=dieB9zAJXGE" class="video-btn popup-youtube">-->
+<!--							<i class="ri-play-fill"></i>-->
+<!--						</a>-->
+<!--					</div>-->
+				</div>
+			</div>
+		</section>
+		<!-- End Our Mission Area -->
+
+
+    {% endif %}
+
+<!--    &lt;!&ndash; class begin &ndash;&gt;-->
+<!--    <div class="class pt-120 pb-80">-->
+<!--        <div class="container">-->
+<!--            <div class="row justify-content-center">-->
+<!--                <div class="col-xl-7 col-lg-8 col-md-10">-->
+<!--                    <div class="section-heading text-center mb-70">-->
+<!--                        <h2 class="section-title mt&#45;&#45;8 mb-25">Our Popular Classes</h2>-->
+<!--                        <p class="heading-sub-txt mt&#45;&#45;1 mb&#45;&#45;8">Here is what you can expect from a house cleaning from a Handy professional. Download the app to share further cleaning details and instructions!</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <div class="popular-class-buttons mb-40 text-center"  id="filters">-->
+<!--                        <button class="class-filter-btn active" data-filter="*">See all</button>-->
+<!--                        <button class="class-filter-btn" data-filter=".trending">Trending</button>-->
+<!--                        <button class="class-filter-btn" data-filter=".popularity">Popularity</button>-->
+<!--                        <button class="class-filter-btn" data-filter=".featured">Featured</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="row popular-classes-wrapper">-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending featured">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-4.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$320.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Writing</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Imagination Class</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 08:00am - 10:00am</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">30 - 40</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">06 - 09</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item popularity featured">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-5.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Painting</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Child education</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending featured">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-6.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Playing</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Children Learning</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-7.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Reading</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Kids Learning</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-8.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Writing</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Writing Practise</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-7.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Painting</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Painting Class</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-10.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Enjoy</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Group Studying</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-11.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Reading</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Globe Intro</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-12.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Playing</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Playing Together</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">-->
+<!--                    <div class="class-card class-card-2 mb-40">-->
+<!--                        <div class="part-img" data-background="assets/images/class-img-13.jpg">-->
+<!--                            <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                                <span class="class-fee">$443.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="popular-class-txt">-->
+<!--                            <a href="#" class="class-catname">Writing</a>-->
+<!--                            <h3 class="class-title mt&#45;&#45;7 mb-6"><a href="class-details.html">Awesome Writing</a></h3>-->
+<!--                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>-->
+<!--                            <p class="mt&#45;&#45;8 mb&#45;&#45;8">Draticaly novate fuly rarched an plications  awesome theme education</p>-->
+<!--                            <div class="class-info mt-30 d-flex justify-content-between">-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Class : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-3 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">22 - 43</span>-->
+<!--                                </div>-->
+<!--                                <div class="box kitba-box-2 text-center">-->
+<!--                                    <span class="single-info d-block fz-14 mt&#45;&#45;4 mb-10">Years : </span>-->
+<!--                                    <span class="amount d-block fz-18 color-1 fw-bold mt&#45;&#45;8 mb&#45;&#45;8">11 - 23</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <div id="see-load-more" class="popular-class-btn text-center pt-30 mb-40">-->
+<!--                        <button class="def-btn">See More Classes</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; class end &ndash;&gt;-->
+
+<!-- &lt;!&ndash; feature begin &ndash;&gt;-->
+<!--    <div class="feature pt-120 pb-50">-->
+<!--        <div class="container">-->
+<!--            <div class="row align-items-center">-->
+<!--                <div class="col-xl-8 col-lg-8">-->
+<!--                    <div class="part-txt mb-70">-->
+<!--                        <div class="section-heading mb-70">-->
+<!--                            <h2 class="section-title mt&#45;&#45;8 mb-25">{{ value.title }}</h2>-->
+<!--                            <p class="heading-sub-txt mt&#45;&#45;1 mb&#45;&#45;8">{{ value.sub_text }}</div>-->
+<!--                        <div class="row r-gap-40 has-gradient-service mb-30 mb-lg-0">-->
+
+<!--                            {% for blurb in value.blurbs %}-->
+
+<!--                                        {% include_block blurb %}-->
+
+<!--                            {% endfor %}-->
+
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xl-4 col-lg-4">-->
+<!--                    <div class="feature-img p-relative ml-30 mb-70">-->
+<!--&lt;!&ndash;                        <img src="assets/images/feature-img.jpg" alt="image">&ndash;&gt;-->
+<!--                        {% image value.photo_376x470 fill-360x470 %}-->
+<!--                        <a href="#" data-video-id="6stlCkUDG_s" class="video-btn bg-gradient-1 p-absolute bottom-0 right-0 text-center text-white"><i class="icofont-play"></i></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; feature end &ndash;&gt;-->
+
+{% endif %}

@@ -1,0 +1,248 @@
+{% extends "leud-theme-base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+
+
+		<!-- Start Blog Post Area --> 
+		<section class="blog-post-area pt-50 pb-70">
+			<div class="container">
+				<div class="section-title">
+					{% comment %} <span class="top-title make-upper">{{ page.title }}</span> {% endcomment %}
+					{% comment %} <h2>{{ page.intro }}</h2> {% endcomment %}
+				</div>
+
+				<div class="row">
+
+        {%if item_type in 'blog' %}
+          {% for item in items %}
+          <div class="col-lg-4 col-md-6">
+            <div class="single-blog style-two">
+              <a href="{{ item.specific.url }}">
+                {% image item.feature_image_570x400  fill-570x400  %}
+                {% comment %} <img src="assets/images/blog/blog-1.jpg" alt="Image"> {% endcomment %}
+              </a>
+  
+              <p class="date">{{ item.day_published }} <span>{{ item.month_published}}</span></p>
+  
+              <div class="blog-content">
+                <ul>
+                  <li>
+                    <i class="ri-user-smile-line"></i>
+                    <a href="#">
+                        {{ item.author|default:'Unknown' }}
+                    </a>
+                  </li>
+                  {% comment %} <li>
+                    <i class="ri-chat-smile-2-line"></i>
+                    <a href="author.html">
+                      Comments
+                    </a>
+                  </li> {% endcomment %}
+                </ul>
+  
+                <h3>
+                  <a href="{{ item.specific.url }}">
+                    {{ item.title }}
+                  </a>
+                </h3>
+  
+                <p>{{ item.intro }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}
+  
+  
+        {%if item_type in 'event' %}
+          {% for item in items %}
+          <div class="col-lg-4 col-md-6">
+						<div class="single-event style-two">
+							<div class="event-img">
+								<a href="{{ item.specific.url }}">
+									{% comment %} <img src="assets/images/events/event-1.jpg" alt="Image"> {% endcomment %}
+                  {% image item.feature_image_570x400  fill-570x400  %}
+								</a>
+
+								<p class="date">11 <span>June</span></p>
+                <p class="date">{{ item.start_day }}  <span>{{ item.start_month}}</span></p>
+							</div>
+
+							<div class="single-event-content">
+								<ul>
+									<li>
+										<i class="ri-time-line"></i>
+										
+                    {{ item.start_date_and_time|time:"f A"  }} - {{ item.end_date_and_time|time:"f A"  }}
+									</li>
+									<li>
+										<i class="ri-map-pin-2-line"></i>
+										{{ item.venue }}
+									</li>
+								</ul>
+	
+								<h3>
+									<a href="{{ item.specific.url }}">
+										{{ item.title }}
+									</a>
+								</h3>
+	
+								<p>{{ item.intro }}</p>
+	
+								<a href="{{ item.specific.url }}" class="default-btn border-btn">
+									READ MORE
+								</a>
+							</div>
+						</div>
+					</div>
+          {% endfor %}
+        {% endif %}
+  
+  
+        {%if item_type in 'news' %}
+      
+          {% for item in items %}
+          <div class="col-lg-4 col-md-6">
+            <div class="single-blog style-two">
+              <a href="{{ item.specific.url }}">
+                {% image item.feature_image_570x400  fill-570x400  %}
+                {% comment %} <img src="assets/images/blog/blog-1.jpg" alt="Image"> {% endcomment %}
+              </a>
+  
+              <p class="date">{{ item.day_published }} <span>{{ item.month_published}}</span></p>
+  
+              <div class="blog-content">
+                <ul>
+                  <li>
+                    <i class="ri-user-smile-line"></i>
+                    <a href="#">
+                        {{ item.author|default:'Unknown' }}
+                    </a>
+                  </li>
+                  {% comment %} <li>
+                    <i class="ri-chat-smile-2-line"></i>
+                    <a href="author.html">
+                      Comments
+                    </a>
+                  </li> {% endcomment %}
+                </ul>
+  
+                <h3>
+                  <a href="{{ item.specific.url }}">
+                    {{ item.title }}
+                  </a>
+                </h3>
+  
+                <p>{{ item.intro }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}
+        
+  
+        {%if item_type in 'project' %}
+          {% for item in items %}
+          <div class="col-lg-4 col-md-6">
+            <div class="single-blog style-two">
+              <a href="blog-details.html">
+                <img src="assets/images/blog/blog-1.jpg" alt="Image">
+              </a>
+  
+              <p class="date">11 <span>June</span></p>
+  
+              <div class="blog-content">
+                <ul>
+                  <li>
+                    <i class="ri-user-smile-line"></i>
+                    <a href="author.html">
+                      By Andrew
+                    </a>
+                  </li>
+                  <li>
+                    <i class="ri-chat-smile-2-line"></i>
+                    <a href="author.html">
+                      Comments
+                    </a>
+                  </li>
+                </ul>
+  
+                <h3>
+                  <a href="blog-details.html">
+                    How to get started fundraising for kids
+                  </a>
+                </h3>
+  
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, assumenda eos modi, ratione perferendis et suscipit cumque tempore</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}
+  
+  
+        {%if item_type in 'story' %}
+          {% for item in items %}
+          <div class="col-lg-4 col-md-6">
+            <div class="single-blog style-two">
+              <a href="{{ item.specific.url }}">
+                {% image item.feature_image_570x400  fill-570x400  %}
+                {% comment %} <img src="assets/images/blog/blog-1.jpg" alt="Image"> {% endcomment %}
+              </a>
+  
+              <p class="date">{{ item.day_published }} <span>{{ item.month_published}}</span></p>
+  
+              <div class="blog-content">
+                <ul>
+                  <li>
+                    <i class="ri-user-smile-line"></i>
+                    <a href="#">
+                        {{ item.author|default:'Unknown' }}
+                    </a>
+                  </li>
+                  {% comment %} <li>
+                    <i class="ri-chat-smile-2-line"></i>
+                    <a href="author.html">
+                      Comments
+                    </a>
+                  </li> {% endcomment %}
+                </ul>
+  
+                <h3>
+                  <a href="{{ item.specific.url }}">
+                    {{ item.title }}
+                  </a>
+                </h3>
+  
+                <p>{{ item.intro }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}
+
+					
+					<!--
+					<div class="col-12">
+						<div class="load-more text-center">
+							<button class="default-btn">
+								LOAD MORE
+							</button>
+						</div>
+					</div>-->
+				</div>
+			</div>
+
+            {% include "shared_templates/page_pagination_template.html" %}
+
+		</section>
+		<!-- End Blog Post Area -->   
+
+
+
+
+{% endblock %}

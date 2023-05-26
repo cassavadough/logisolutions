@@ -1,0 +1,37 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+
+
+    <div class="col-xl-4 col-lg-6 col-md-6 popular-class-item {{ value.category }}">
+        <div class="class-card mb-40">
+            <div class="part-img">
+<!--                <div class="kb-class-fee-wrap-1 p-rel fix">-->
+<!--                    <span class="class-fee">$320.00</span>-->
+<!--                    <span class="kb-class-tooltip-1">Tution Fee</span>-->
+<!--                </div>-->
+
+                <a href="{{ value.page_url }}">{% image value.photo_376x274 fill-376x274 class="w-100" %} </a>
+            </div>
+            <div class="part-txt p-40 px-30">
+                <a href="{{ value.page_url }}" class="class-catname bg-theme symbol">{{value.category}}</a>
+                <h3 class="class-title mt--7 mb-6 name"><a href="{{ value.page_url }}">{{value.title}}</a></h3>
+<!--                <span class="class-time mb-25">Class Time : 08:00 am - 10:00 am</span>-->
+                <p class="mt--8 mb--8">{{ value.text}}</p>
+                <div class="class-info mt-30 d-flex justify-content-between">
+                    <div class="box box-1 text-center">
+                        <span class="single-info d-block fz-14 mt--4 mb-10">{{value.footer_left_column_label }} </span>
+                        <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">{{value.footer_left_column_text }} </span>
+                    </div>
+                    <div class="vertical-border"></div>
+                    <div class="box box-1 text-center">
+                        <span class="single-info d-block fz-14 mt--4 mb-10">{{value.footer_right_column_label }}</span>
+                        <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">{{value.footer_right_column_text }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

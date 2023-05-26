@@ -1,0 +1,37 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+ <!-- feature begin -->
+    <div class="feature pt-120 pb-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-heading text-center mb-70">
+                        <h2 class="section-title mt--8 mb-15">Welcome to Our Kidba</h2>
+                        <p class="heading-sub-txt mt--1 mb--8">Here is what you can expect from a house cleaning from a Handy professional. Download the app to share further cleaning details and instructions!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row has-gradient-service">
+
+                {% for blurb in value.blurbs %}
+                     {% include_block blurb %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- feature end -->
+{% endif %}
+<!--<div class="feature-box d-flex mb-40">-->
+<!--    <div class="feature-part-icon mr-30">-->
+<!--        <img src="assets/images/feat-icon-5.png" class="filter-shadow-2" alt="Icon">-->
+<!--        {% image value.photo_1356x1180 fill-1356x1180 %}-->
+<!--    </div>-->
+<!--    <div class="feature-txt">-->
+<!--        <h3 class="feature-sub-title prnt-clr mt&#45;&#45;7 mb&#45;&#45;8"><a href="staff-details.html">Parents Day</a></h3>-->
+<!--        <div class="divider bg-gradient-2 rounded-pill rounded-pill-space"></div>-->
+<!--        <p class="mt&#45;&#45;6 mb&#45;&#45;8">Since have been visonary relable sofware engnern partne.</p>-->
+<!--    </div>-->
+<!--</div>-->

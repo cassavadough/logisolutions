@@ -1,0 +1,37 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+<div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="blog-card mb-40">
+        <div class="part-img w_100">
+            <a href="blog-details.html">{% image value.icon_100x100 fill-100x100  %}<img src="assets/images/blog-img-1.jpg" alt="Image"></a>
+            <span class="lv-part-blog-calendar-date">
+                <i class="icofont-calendar"></i> 23.01.2022
+            </span>
+        </div>
+        <div class="blog-card-txt p-40 px-30">
+            <h3 class="blog-title mt--2 mb-20"><a href="blog-details.html">Funny lessons for kids...</a></h3>
+            <p class="mb--8">Comptely actuaze cent centric coloraton and shang without ainstalled base kid</p>
+        </div>
+        <div class="blog-bottom-part px-30 d-flex justify-content-between align-items-center">
+            <span class="blog-single-stat py-20"><img src="assets/images/heart-icon.png" class="mr-10" alt="Heart">23 Like</span>
+            <span class="blog-single-stat py-20"><img src="assets/images/comment-icon.png" class="mr-10" alt="Comment">22 Comment</span>
+        </div>
+    </div>
+</div>
+
+ <div class="feature-box d-flex mb-40">
+        <div class="feature-part-icon mr-30">
+<!--            <img src="assets/images/feat-icon-5.png" class="filter-shadow-2" alt="Icon">-->
+            {% image value.icon_100x100 fill-100x100  %}
+        </div>
+        <div class="feature-txt">
+            <h3 class="feature-sub-title prnt-clr mt--7 mb--8"><a href="{{ value.page_url }}">{{ value.title }}</a></h3>
+<!--            <div class="divider bg-gradient-2 rounded-pill rounded-pill-space"></div>-->
+            <div class="divider {{ value.gradient }} rounded-pill rounded-pill-space"></div>
+            <p class="mt--6 mb--8">{{ value.sub_text }}</p>
+        </div>
+    </div>
+
+

@@ -1,0 +1,99 @@
+
+/*** 
+
+====================================================================
+    Fun Fact Section
+====================================================================
+
+***/
+
+.fun-fact-section{
+    position: relative;
+    padding: 120px 0 0;
+}
+
+.fun-fact-section .bg-image{
+    @include absolute;
+    bottom: 120px;
+    width: 100%;   
+    @include background;
+    background-position: center top;
+    &:before{
+        @include overlay;
+        content: "";
+        background-color: var(--bg-theme-color1);
+        opacity: .85;
+    }
+}
+
+.fun-fact-section .sec-title .theme-btn{
+    margin-top: 30px;
+}
+
+.fact-counter{
+    position: relative;
+    padding: 120px 0 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.fact-counter .row {
+    margin: 0 -30px;
+}
+
+.fact-counter .counter-column{
+    position:relative;
+    padding: 0 30px;
+}
+
+.fact-counter .counter-column .inner-column{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 60px 50px 36px;
+    padding-right: 30px;
+    border-top: 4px solid var(--border-theme-color2);
+    box-shadow: 0 10px 30px rgba(0,0,0, .10);
+}
+
+.fact-counter .counter-column .icon {
+    @include flex-center;
+    position: relative;
+    height: 160px;
+    width: 200px;
+    background-color: #fff;
+    border-top: 4px solid var(--border-theme-color2);
+    transition: all 300ms ease;
+    margin: 0 auto -60px;
+    z-index: 1;
+}
+
+.fact-counter .counter-column:hover .icon{
+    transform: scale(.8);
+    background-color: var(--bg-theme-color3);
+}
+
+.fact-counter .count-box{
+    font-size:60px;
+    color:var(--theme-color1);
+    font-weight: 700;
+    line-height: 1em;
+    margin-right: 20px;
+    text-transform: uppercase;
+}
+
+.fact-counter .count-box .count-text{
+    font-size: 60px;
+    color: var(--theme-color1);
+    font-weight: 700;
+    line-height: 1em;
+}
+
+.fact-counter .counter-title{
+    display: inline-block;
+    font-size:16px;
+    line-height: 25px;
+    color:#7c858c;
+    border: 1px solid rgba(255,255,255, 0.4);
+}

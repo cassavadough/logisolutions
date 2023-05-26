@@ -1,0 +1,336 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+    <!-- class begin -->
+    <div class="class pt-120 pb-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-heading text-center mb-70">
+                        <h2 class="section-title mt--8 mb-25">Our Popular Classes</h2>
+                        <p class="heading-sub-txt mt--1 mb--8">Here is what you can expect from a house cleaning from a Handy professional. Download the app to share further cleaning details and instructions!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="popular-class-buttons mb-40 text-center"  id="filters">
+                        <button class="class-filter-btn active" data-filter="*">See all</button>
+                        <button class="class-filter-btn" data-filter=".trending">Trending</button>
+                        <button class="class-filter-btn" data-filter=".popularity">Popularity</button>
+                        <button class="class-filter-btn" data-filter=".featured">Featured</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row popular-classes-wrapper">
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending featured">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-4.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$320.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Writing</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Imagination Class</a></h3>
+                            <span class="class-time mb-20">Time : 08:00am - 10:00am</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">30 - 40</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">06 - 09</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item popularity featured">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-5.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Painting</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Child education</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending featured">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-6.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Playing</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Children Learning</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-7.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Reading</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Kids Learning</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-8.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Writing</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Writing Practise</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-7.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Painting</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Painting Class</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-10.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Enjoy</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Group Studying</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-11.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Reading</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Globe Intro</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-12.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Playing</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Playing Together</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item trending popularity">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="assets/images/class-img-13.jpg">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+                                <span class="class-fee">$443.00</span>
+                                <span class="kb-class-tooltip-1">Tution Fee</span>
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">Writing</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">Awesome Writing</a></h3>
+                            <span class="class-time mb-20">Time : 04:00am - 03:00pm</span>
+                            <p class="mt--8 mb--8">Draticaly novate fuly rarched an plications  awesome theme education</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Class : </span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">22 - 43</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">Years : </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">11 - 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div id="see-load-more" class="popular-class-btn text-center pt-30 mb-40">
+                        <button class="def-btn">See More Classes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- class end -->
+
+ <!-- feature begin -->
+    <div class="feature pt-120 pb-50">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-8 col-lg-8">
+                    <div class="part-txt mb-70">
+                        <div class="section-heading mb-70">
+                            <h2 class="section-title mt--8 mb-25">{{ value.title }}</h2>
+                            <p class="heading-sub-txt mt--1 mb--8">{{ value.sub_text }}</div>
+                        <div class="row r-gap-40 has-gradient-service mb-30 mb-lg-0">
+
+                            {% for blurb in value.blurbs %}
+
+                                        {% include_block blurb %}
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="feature-img p-relative ml-30 mb-70">
+<!--                        <img src="assets/images/feature-img.jpg" alt="image">-->
+                        {% image value.photo_376x470 fill-360x470 %}
+                        <a href="#" data-video-id="6stlCkUDG_s" class="video-btn bg-gradient-1 p-absolute bottom-0 right-0 text-center text-white"><i class="icofont-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- feature end -->
+
+{% endif %}

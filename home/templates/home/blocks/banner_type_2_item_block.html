@@ -1,0 +1,57 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="swiper-slide bg_cover" data-background="{{bg_image.full_url}}">
+    <div class="banner-2">
+        <div class="single-banner-slide kitba-slide-height">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="banner-txt">
+                            <h3 class="banner-subtitle-2 mt--9 mb-10"  data-animation="fadeInUp" data-delay=".3s">{{ value.pre_title}}</h3>
+                            <h1 class="banner-title-2 mb-20" data-animation="fadeInUp" data-delay=".5s"> {{ value.title }}</h1>
+                            <p class="banner-paragraph-2 mb-11" data-animation="fadeInUp" data-delay=".7s">{{ value.text }}</p>
+                            {% if value.button_1_label or value.button_2_label %}
+                            <div class="banner-btn btn-box sm-padd-btn pt-35">
+                                 {% if value.button_1_label %}
+                                    <a href="button_1_page_url " class="def-btn btn-2" data-animation="fadeInUp" data-delay=".8s">{{ value.button_1_label }}</a>
+                                {% endif %}
+                                {% if value.button_2_label %}
+                                    <a href="{{ button_2_page_url }}" class="def-btn btn-3" data-animation="fadeInUp" data-delay=".9s"> {{ value.button_2_label }} </a>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="col-lg-3 col-sm-6">-->
+<!--                    <div class="feature-card px-20 d-flex flex-column align-items-center mb-40">-->
+<!--                        <div class="feature-icon bg-gradient-1 shadow-1 rounded-pill d-flex justify-content-center align-items-center mb-30">-->
+<!--&lt;!&ndash;                            <img src="assets/images/feat-icon-8.png" alt="Icon">&ndash;&gt;-->
+<!--                            {% image value.icon_100x100 fill-100x180 %}-->
+<!--                        </div>-->
+<!--                        <div class="feature-txt-2 text-center">-->
+<!--                            <h3 class="feature-sub-title mt&#45;&#45;7"><a href="class-details.html">{{ value.title }}</a></h3>-->
+<!--                            <div class="divider bg-gradient-1 rounded-pill mx-auto mb-20"></div>-->
+<!--                            <p class="feature-txt-2 mt&#45;&#45;6 mb&#45;&#45;8">{{value.sub_text}}</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--<div class="feature-box d-flex mb-40">-->
+<!--    <div class="feature-part-icon mr-30">-->
+<!--        <img src="assets/images/feat-icon-5.png" class="filter-shadow-2" alt="Icon">-->
+<!--        {% image value.photo_1356x1180 fill-1356x1180 %}-->
+<!--    </div>-->
+<!--    <div class="feature-txt">-->
+<!--        <h3 class="feature-sub-title prnt-clr mt&#45;&#45;7 mb&#45;&#45;8"><a href="staff-details.html">Parents Day</a></h3>-->
+<!--        <div class="divider bg-gradient-2 rounded-pill rounded-pill-space"></div>-->
+<!--        <p class="mt&#45;&#45;6 mb&#45;&#45;8">Since have been visonary relable sofware engnern partne.</p>-->
+<!--    </div>-->
+<!--</div>-->

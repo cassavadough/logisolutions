@@ -1,0 +1,47 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+<style>
+
+{% if value.background_image_width_1920 %}
+    
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+    section.custom_bg {
+        background: url({{ bg_image.full_url }}) bottom center no-repeat;
+        background-size: cover;
+        color: #fff;
+    }
+
+    .custom_bg {
+        background: url({{ bg_image.full_url }}) bottom center no-repeat;
+        background-size: cover;
+        color: #fff;
+    }
+
+{% endif %}
+
+/*  Pink  */
+.my_testimonial_bg {
+    background: url('/static/kidba_theme/assets/images/testimonial-bg.jpg') center center no-repeat;
+    background-size: cover;
+    color: #fff !important;
+}
+
+/* Blue */
+.my_facility_bg {
+    background: url('/static/kidba_theme/assets/images/facility-bg.jpg') center center no-repeat;
+    background-size: cover;
+    color: #fff !important;
+
+}
+
+/*  Orange  */
+.my_counter_bg {
+    background: url('/static/kidba_theme/assets/images/counter-bg.png') center center no-repeat;
+    background-size: cover;
+    color: #fff !important;
+}
+
+</style>
+

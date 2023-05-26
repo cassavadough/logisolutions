@@ -1,0 +1,35 @@
+{% extends "leud-theme-base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{# Pagination #}
+{# https://docs.djangoproject.com/en/3.1/topics/pagination/#paginating-a-listview #}
+
+<ul class="pagination">
+  {% if posts.has_previous %}
+    <li class="page-item">
+      <a href="?page={{ posts.previous_page_number }}" class="page-link">
+        Previous
+      </a>
+    </li>
+  {% else %}
+    <li class="page-item disabled">
+      <a href="#" class="page-link">
+        Previous
+      </a>
+    </li>
+  {% endif %}
+
+  {% if posts.has_next %}
+    <li class="page-item">
+      <a href="?page={{ posts.next_page_number }}" class="page-link">
+        Next
+      </a>
+    </li>
+  {% else %}
+    <li class="page-item disabled">
+      <a href="#" class="page-link">
+        Next
+      </a>
+    </li>
+  {% endif %}
+</ul>

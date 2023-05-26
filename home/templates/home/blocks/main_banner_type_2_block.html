@@ -1,0 +1,60 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% image value.background_image_1920x865 width-500 as bg_image %}
+    <style>
+     .banner {
+        background: url({{ bg_image.full_url }}) bottom center no-repeat;
+        background-size: cover;
+    }
+
+    </style>
+
+{% if value.visible %}
+
+<!-- banner begin -->
+<div class="kitba-banner-area">
+    <div class="slider-active swiper-container">
+        <div class="swiper-wrapper">
+                {% for slide in value.slides %}
+                    {% include_block slide %}
+                {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- banner end -->
+
+<!--{% include "home/blocks/__kidba_conditional_include.html" %}-->
+<!--    &lt;!&ndash; banner begin &ndash;&gt;-->
+<!--    <div class="banner pt-185 pb-190">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-9 col-sm-11">-->
+<!--                    <div class="banner-txt">-->
+<!--                        <h3 class="banner-subtitle mt&#45;&#45;9 mb-10">{{ value.pre_title|default:"A New Approach to" }}</h3>-->
+<!--                        <h1 class="banner-title mb-20 cd-headline push">-->
+<!--                            <span>{{ value.main_title|default:"Study Of" }}</span>-->
+<!--                            <span class="cd-words-wrapper">-->
+<!--                                <b class="is-visible">{{ value.first_animated_text|default:"Kids" }}</b>-->
+<!--                                <b>{{ value.second_animated_text|default:"Youth" }} </b>-->
+<!--                                <b>{{ value.third_animated_text|default:"Child" }}</b>-->
+<!--                            </span>-->
+<!--                        </h1>-->
+<!--                        <p class="banner-paragraph mb-11">{{ value.post_title|default:"We provide the best solutions for a Clean Environment If you need any help in cleaning or maintenance." }}</p>-->
+<!--                        <div class="btn-box sm-padd-btn pt-35">-->
+<!--                            {% if value.button_1_label %}-->
+<!--                                <a href="{{ value.button_1_page_url }}" class="def-btn btn-2">{{ value.button_1_label }}</a>-->
+<!--                            {% endif %}-->
+<!--                            {% if value.button_2_label %}-->
+<!--                                <a href="{{ value.button_2_page_url }}" class="def-btn btn-3">{{ value.button_2_label }}</a>-->
+<!--                            {% endif %}-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; banner end &ndash;&gt;-->
+
+{% endif %}

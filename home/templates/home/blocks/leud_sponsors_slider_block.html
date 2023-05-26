@@ -1,0 +1,38 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+		<!-- Start Partner Area -->
+		<div class="partner-area pt-100 general-padding"
+		{% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+		>
+			<div class="container">
+				<div class="partner-bg style-two">
+					<span>{{ value.title }}</span>
+
+					<div class="partner-slider owl-carousel owl-theme">
+
+                            {% for item in value.sponsors %}
+                                <div class="single-partner">
+<!--                                    <img src="assets/images/partners/partner-7.png" alt="Image">-->
+                                    {% image item.logo_image_80x80 max-150x150 %}
+                                </div>
+                            {% endfor %}
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Partner Area -->
+
+
+{% endif %}

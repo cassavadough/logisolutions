@@ -1,0 +1,74 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+
+	{% if value.background_image_width_1920 %}
+		{% image value.background_image_width_1920 width-1920 as bg_image %}
+	{% endif %}
+
+		<!-- Start Event Area -->
+	<section class=" event-bg-area pt-100 pb-70 general-padding"
+
+		{% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+
+		>
+
+			<div class="container">
+				<div class="section-title">
+					<span class="top-title">{{ value.title }}</span>
+					<h2>{{value.text}}</h2>
+				</div>
+
+				<div class="row justify-content-center">
+
+					{% for event in value.events %}
+					<div class="col-lg-4 col-md-6">
+						<div class="single-event style-two">
+							<div class="event-img">
+								<a href="{{ event.specific.url }}">
+									{% comment %} <img src="assets/images/events/event-1.jpg" alt="Image"> {% endcomment %}
+									{% image event.feature_image_570x400 fill-570x400 %}
+								</a>
+
+								<p class="date">{{ event.start_day }}  <span>{{ event.start_month}}</span></p>
+							</div>
+
+							<div class="single-event-content">
+								<ul>
+									<li>
+										<i class="ri-time-line"></i>
+										{{ event.start_date_and_time|time:"f A"  }} - {{ event.end_date_and_time|time:"f A"  }}
+									</li>
+									<li>
+										<i class="ri-map-pin-2-line"></i>
+										{{ event.venue }}
+									</li>
+								</ul>
+	
+								<h3>
+									<a href="{{ event.specific.url }}">
+										{{ event.title }}
+									</a>
+								</h3>
+	
+								<p>{{ event.intro }}</p>
+	
+								<a href="{{ event.specific.url }}" class="default-btn border-btn border-radius-btn">
+									READ MORE
+								</a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					
+
+				</div>
+			</div>
+		</section>
+		<!-- End Event Area -->
+
+
+{% endif %}

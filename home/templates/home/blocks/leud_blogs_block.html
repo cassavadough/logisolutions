@@ -1,0 +1,75 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+
+	{% if value.background_image_width_1920 %}
+		{% image value.background_image_width_1920 width-1920 as bg_image %}
+	{% endif %}
+
+
+
+<!-- Start Blog Post Area -->  
+    <section class="blog-post-area  pt-100 pb-70 general-padding"
+
+		{% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+
+		>
+
+			<div class="container">
+				<div class="section-title section-title-three">
+					<span class="top-title">{{ value.title }}</span>
+					<span class="watermark">Blog</span>
+					<h2>{{value.text}}</h2>
+				</div>
+
+				<div class="row justify-content-center">
+					
+					{% for blog in value.blogs %}
+					<div class="col-lg-4 col-md-6">
+						<div class="single-blog style-two ">
+							<a href="{{ blog.specific.url }}">
+								{% comment %} <img src="assets/images/blog/blog-1.jpg" alt="Image"> {% endcomment %}
+								{% image blog.feature_image_570x400 fill-570x400 %}
+							</a>
+
+							<p class="date">{{ blog.day_published }} <span>{{ blog.month_published}}</span></p>
+
+							<div class="blog-content">
+								<ul>
+									<li>
+										<i class="ri-user-smile-line"></i>
+										<a href="#">
+											{{ blog.author }}
+										</a>
+									</li>
+									{% comment %} <li>
+										<i class="ri-chat-smile-2-line"></i>
+										<a href="author.html">
+											Comments
+										</a>
+									</li> {% endcomment %}
+								</ul>
+
+								<h3>
+									<a href="{{ blog.specific.url }}">
+										{{ blog.title }}
+									</a>
+								</h3>
+
+								<p>{{ blog.intro }}</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+
+
+
+    </section>
+
+		<!-- End Blog Post Area -->   
+{% endif %}

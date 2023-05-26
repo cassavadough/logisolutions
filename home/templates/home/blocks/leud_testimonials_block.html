@@ -1,0 +1,43 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+		<!-- Start Testimonial Area -->
+		<section class="testimonial-area ptb-100 general-padding"
+				 {% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+		>
+			<div class="container">
+				<div class="section-title">
+					<span class="top-title">{{ value.title }}</span>
+					<h2> {{ value.text }}</h2>
+				</div>
+
+				<div class="testimonial-slider owl-carousel owl-theme">
+					{% for testimonial in value.testimonials %}
+						<div class="single-testimonial-content">
+						<div class="testimonial-avatar">
+<!--							<img src="assets/images/testimonial/testimonial-1.jpg" class="avatar" alt="Image">-->
+							{% image testimonial.photo_100x100 fill-100x100 class="avatar" %}
+							<img src="{% static 'leud_theme/assets/images/testimonial/quat.png' %}" class="quat" alt="Image">
+							<h3>{{ testimonial.name }}</h3>
+							<span> {{ testimonial.role }}</span>
+						</div>
+
+						<p>{{ testimonial.message }}</p>
+
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
+		<!-- End Testimonial Area -->
+
+{% endif %}

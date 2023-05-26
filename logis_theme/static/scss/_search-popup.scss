@@ -1,0 +1,165 @@
+
+/*** 
+
+====================================================================
+  Search Popup
+====================================================================
+
+***/
+
+.search-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 500ms ease;
+  overflow: hidden;
+  transform: scale(.95);
+}
+
+.search-popup .search-back-drop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-theme-color1);
+  opacity: .95;
+}
+
+.moblie-search-active .search-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  border-radius: 0%;
+}
+
+.search-popup .close-search {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 26px;
+  color: var(--theme-color2);
+  z-index: 3; 
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 500ms ease;
+}
+
+.search-popup .search-inner {
+  position: relative;
+  display: block;
+  top: 40%;
+  height: auto;
+  z-index: 1;
+  width: calc(100% - 60px);
+  max-width: 800px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 300ms ease;
+}
+
+.moblie-search-active .search-popup .search-inner {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 500ms;
+}
+/* Header Search */
+
+.search-popup .form-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-popup .form-group input[type="text"],
+.search-popup .form-group input[type="search"] {
+  position: relative;
+  display: block;
+  line-height: 20px;
+  font-size: 16px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #e1e6dc;
+  padding: 15px 20px;
+  color: #707070;
+  background: #ffffff;
+  border-radius: 50px;
+  transition: all 500ms ease;
+}
+
+.search-popup .form-group input[type="text"]:focus,
+.search-popup .form-group input[type="search"]:focus {
+  border-color: var(--border-theme-color2);
+}
+
+.search-popup .form-group button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: 40px;
+  width: 40px;
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  line-height: 40px;
+  border-radius: 50px;
+  font-weight: normal;
+  background: var(--theme-color2);
+  transition: all 500ms ease;
+}
+
+.search-popup .form-group button:hover {
+  background: var(--theme-color2);
+  color: #ffffff;
+}
+
+.search-popup input::-webkit-input-placeholder,
+.search-popup textarea::-webkit-input-placeholder {
+  color: inherit;
+}
+
+.search-popup input::-moz-placeholder,
+.search-popup textarea::-moz-placeholder {
+  color: inherit;
+}
+
+.search-popup input:-ms-input-placeholder,
+.search-popup textarea:-ms-input-placeholder {
+  color: inherit;
+}
+
+.search-popup input::-ms-input-placeholder,
+.search-popup textarea::-ms-input-placeholder {
+  color: inherit;
+}
+
+.search-popup input::-webkit-input-placeholder, 
+.search-popup textarea::-webkit-input-placeholder {
+  color: inherit;
+}
+
+.search-popup input::-moz-placeholder, 
+.search-popup textarea::-moz-placeholder {
+  color: inherit;
+}
+
+.search-popup input:-ms-input-placeholder, 
+.search-popup textarea:-ms-input-placeholder {
+  color: inherit;
+}
+
+.search-popup input::-ms-input-placeholder, 
+.search-popup textarea::-ms-input-placeholder {
+  color: inherit;
+}
+
+.search-popup input::placeholder,
+.search-popup textarea::placeholder {
+  color: inherit;
+}

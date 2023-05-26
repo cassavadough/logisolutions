@@ -1,0 +1,82 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+<!-- Start Gallery Area -->
+{% if '336' in value.format %}
+    <div class="col-lg-6">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="gallery-img">
+                {% image value.photo_315x400_first fill-315x400 %}
+                {% image value.photo_315x400_first fill-315x400 as value_photo_315x400_first %}
+<!--                <img src="assets/images/gallery/gallery-1.jpg" alt="Image">-->
+
+                <a href="{{ value_photo_315x400_first.full_url }}" class="img-view">
+                    <i class="ri-add-circle-line"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="gallery-img">
+                   {% image value.photo_315x400_second fill-315x400 %}
+                {% image value.photo_315x400_second fill-315x400 as value_photo_315x400_second %}
+                <a href="{{ value_photo_315x400_second.full_url }}" class="img-view">
+                    <i class="ri-add-circle-line"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="gallery-img">
+                {% image value.photo_650x350 fill-650x350 %}
+                {% image value.photo_650x350 fill-650x350 as value_photo_650x350 %}
+                <a href="{{value_photo_650x350.full_url}}" class="img-view">
+                    <i class="ri-add-circle-line"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+    <div class="col-lg-6">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="gallery-img">
+                {% image value.photo_650x350 fill-650x350 %}
+                {% image value.photo_650x350 fill-650x350 as value_photo_650x350 %}
+                <a href="{{value_photo_650x350.full_url}}" class="img-view">
+                    <i class="ri-add-circle-line"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="gallery-img">
+                {% image value.photo_315x400_first fill-315x400 %}
+                {% image value.photo_315x400_first fill-315x400 as value_photo_315x400_first %}
+<!--                <img src="assets/images/gallery/gallery-1.jpg" alt="Image">-->
+
+                <a href="{{ value_photo_315x400_first.full_url }}" class="img-view">
+                    <i class="ri-add-circle-line"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="gallery-img">
+                   {% image value.photo_315x400_second fill-315x400 %}
+                {% image value.photo_315x400_second fill-315x400 as value_photo_315x400_second %}
+                <a href="{{ value_photo_315x400_second.full_url }}" class="img-view">
+                    <i class="ri-add-circle-line"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- End Gallery Area -->
+
+

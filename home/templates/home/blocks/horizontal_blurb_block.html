@@ -1,0 +1,28 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+ <div class="col-lg-3 col-sm-6">
+                    <div class="feature-card px-20 d-flex flex-column align-items-center mb-40">
+                        <div class="feature-icon bg-gradient-1 shadow-1 rounded-pill d-flex justify-content-center align-items-center mb-30">
+<!--                            <img src="assets/images/feat-icon-8.png" alt="Icon">-->
+                            {% image value.icon_100x100 fill-100x180 %}
+                        </div>
+                        <div class="feature-txt-2 text-center">
+                            <h3 class="feature-sub-title mt--7"><a href="class-details.html">{{ value.title }}</a></h3>
+                            <div class="divider bg-gradient-1 rounded-pill mx-auto mb-20"></div>
+                            <p class="feature-txt-2 mt--6 mb--8">{{value.sub_text}}</p>
+                        </div>
+                    </div>
+                </div>
+
+<div class="feature-box d-flex mb-40">
+    <div class="feature-part-icon mr-30">
+        <img src="assets/images/feat-icon-5.png" class="filter-shadow-2" alt="Icon">
+        {% image value.photo_1356x1180 fill-1356x1180 %}
+    </div>
+    <div class="feature-txt">
+        <h3 class="feature-sub-title prnt-clr mt--7 mb--8"><a href="staff-details.html">Parents Day</a></h3>
+        <div class="divider bg-gradient-2 rounded-pill rounded-pill-space"></div>
+        <p class="mt--6 mb--8">Since have been visonary relable sofware engnern partne.</p>
+    </div>
+</div>

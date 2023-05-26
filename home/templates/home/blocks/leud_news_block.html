@@ -1,0 +1,83 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+
+	{% if value.background_image_width_1920 %}
+		{% image value.background_image_width_1920 width-1920 as bg_image %}
+	{% endif %}
+
+
+
+<!-- Start Blog Post Area Leud_news_block -->
+<section class="blog-post-area pb-70 ptb-100 pt-100 general-padding"
+
+		{% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+
+		>
+
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-8">
+				<div class="section-title section-title-left">
+					<span class="top-title">{{ value.title }}</span>
+					<h2>{{value.text}}</h2>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="text-right">
+					<a href="/news" class="default-btn border-btn">VIEW ALL</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			{% for item in value.news %}
+				<div class="col-lg-4 col-md-6">
+				<div class="single-blog">
+					<a href="{{ item.specific.url }}">
+						{% image item.feature_image_570x400 fill-570x400 %}
+					</a>
+
+					<p class="date">{{ item.day_published }} <span>{{ item.month_published}}</span></p>
+
+					<div class="blog-content">
+						<ul>
+							<li>
+								<i class="ri-user-smile-line"></i>
+								<a href="author.html">
+									{{ item.author }}
+								</a>
+							</li>
+<!--							<li>-->
+<!--								<i class="ri-chat-smile-2-line"></i>-->
+<!--								<a href="author.html">-->
+<!--									Comments-->
+<!--								</a>-->
+<!--							</li>-->
+						</ul>
+
+						<h3>
+							<a href="{{ item.specific.url }}">
+								{{ item.title }}
+							</a>
+						</h3>
+
+						<p>{{ item.intro }}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+
+		</div>
+	</div>
+
+		<!-- End Blog Post Area -->
+
+</section>
+
+		<!-- End Blog Post Area -->   
+{% endif %}

@@ -1,0 +1,525 @@
+{% load static %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% load wagtailuserbar %}
+
+<!doctype html>
+<html lang="zxx">
+    <head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Owl Theme Default Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/owl.theme.default.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Owl Carousel Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/owl.carousel.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Remixicon CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/remixicon.css' %}" rel="stylesheet" type="text/css">
+		<!-- Flaticon CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/flaticon.css' %}" rel="stylesheet" type="text/css">
+		<!-- Meanmenu Min CSS -->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/meanmenu.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Animate Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/animate.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Magnific Popup Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/magnific-popup.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Odometer Min CSS-->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/odometer.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Navbar CSS-->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/navbar.css' %}" rel="stylesheet" type="text/css">
+		<!-- Style CSS -->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/style.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'leud_theme/assets/css/custom.css' %}" rel="stylesheet" type="text/css">
+		<!-- Responsive CSS -->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/responsive.css' %}" rel="stylesheet" type="text/css">
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="{% static 'leud_theme/assets/images/favicon.png' %}">
+		<!-- Title -->
+		<title>Leud - Charity & Donation HTML Template</title>
+    </head>
+
+    <body>
+		<!-- Start Preloader Area -->
+		<div class="preloader">
+			<div class="lds-ripple">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<!-- End Preloader Area -->
+
+		<!-- Start Navbar Area -->
+		<div class="navbar-area">
+			<div class="mobile-responsive-nav">
+				<div class="container">
+					<div class="mobile-responsive-menu">
+						<div class="logo">
+							<a href="\">
+								<img src="{% static 'leud_theme/assets/images/logos/logo.png' %}" alt="logo">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="desktop-nav">
+				<div class="container">
+					<nav class="navbar navbar-expand-md navbar-light">
+						<a class="navbar-brand" href="\">
+							{% comment %} <img src="assets/images/logo-color.png" alt="logo"> {% endcomment %}
+							{% comment %} <img src="{% static 'leud_theme/assets/images/logos/logo.png' %}" alt="logo"> {% endcomment %}
+							<img src="{% static 'leud_theme/assets/images/logos/breanna_cancer_foundation_new_logo_80.jpeg' %}" alt="logo">
+						</a>
+
+						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+							<ul class="navbar-nav m-auto">
+
+								<li class="nav-item">
+									<a href="home" class="nav-link active">HOME</a>
+								</li>
+
+<!--								<li class="nav-item">-->
+
+
+<!--									<a href="#" class="nav-link active">-->
+<!--										HOME-->
+<!--										<i class="ri-arrow-down-s-line"></i>-->
+<!--									</a>-->
+
+<!--									<ul class="dropdown-menu">-->
+<!--										<li class="nav-item">-->
+<!--											<a href="index.html" class="nav-link">HOME ONE</a>-->
+<!--										</li>-->
+<!--										<li class="nav-item">-->
+<!--											<a href="index-2.html" class="nav-link">HOME TWO</a>-->
+<!--										</li>-->
+<!--										<li class="nav-item">-->
+<!--											<a href="index-3.html" class="nav-link active">HOME THREE</a>-->
+<!--										</li>-->
+<!--									</ul>-->
+<!--								</li>-->
+
+								<li class="nav-item">
+									<a href="about.html" class="nav-link">ABOUT</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#" class="nav-link">
+										CAUSES 
+										<i class="ri-arrow-down-s-line"></i>
+									</a>
+
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+											<a href="causes.html" class="nav-link">CAUSES</a>
+										</li>
+										<li class="nav-item">
+											<a href="causes-details.html" class="nav-link">CAUSES DETAILS</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="nav-item">
+									<a href="#" class="nav-link">
+										PAGES
+										<i class="ri-arrow-down-s-line"></i>
+									</a>
+
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+											<a href="volunteers.html" class="nav-link">VOLUNTEERS</a>
+										</li>
+										<li class="nav-item">
+											<a href="gallery.html" class="nav-link">GALLERY</a>
+										</li>
+										<li class="nav-item">
+											<a href="faq.html" class="nav-link">FAQ</a>
+										</li>
+										<li class="nav-item">
+											<a href="donation.html" class="nav-link">DONATION</a>
+										</li>
+										
+										<li class="nav-item">
+											<a href="#" class="nav-link">
+												USER 
+												<i class="ri-arrow-down-s-line"></i>
+											</a>
+	
+											<ul class="dropdown-menu">
+												<li class="nav-item">
+													<a href="my-account.html" class="nav-link">MY ACCOUNT</a>
+												</li>
+												<li class="nav-item">
+													<a href="log-in.html" class="nav-link">LOG IN</a>
+												</li>
+												<li class="nav-item">
+													<a href="register.html" class="nav-link">REGISTER</a>
+												</li>
+											</ul>
+										</li>
+
+										<li class="nav-item">
+											<a href="#" class="nav-link">
+												EVENTS 
+												<i class="ri-arrow-down-s-line"></i>
+											</a>
+	
+											<ul class="dropdown-menu">
+												<li class="nav-item">
+													<a href="events.html" class="nav-link">EVENTS</a>
+												</li>
+												<li class="nav-item">
+													<a href="event-details.html" class="nav-link">EVENT DETAILS</a>
+												</li>
+											</ul>
+										</li>
+										
+										<li class="nav-item">
+											<a href="testimonials.html" class="nav-link">TESTIMONIALS</a>
+										</li>
+										<li class="nav-item">
+											<a href="privacy-policy.html" class="nav-link">PRIVACY POLICY</a>
+										</li>
+										<li class="nav-item">
+											<a href="terms-of-service.html" class="nav-link">TERMS OF SERVICE</a>
+										</li>
+										<li class="nav-item">
+											<a href="coming-soon.html" class="nav-link">COMING SOON</a>
+										</li>
+										<li class="nav-item">
+											<a href="404.html" class="nav-link">404 PAGE</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="nav-item">
+									<a href="#" class="nav-link">
+										BLOG 
+										<i class="ri-arrow-down-s-line"></i>
+									</a>
+
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+											<a href="blog.html" class="nav-link">BLOG</a>
+										</li>
+										<li class="nav-item">
+											<a href="blog-details.html" class="nav-link">BLOG DETAILS</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="nav-item">
+									<a href="contact.html" class="nav-link">CONTACT</a>
+								</li>
+							</ul>
+
+							<div class="others-options">
+								<ul>
+									{% comment %} <li>
+										<button type="button" class="search-icon" data-bs-toggle="modal" data-bs-target="#exampleModalsrc">
+											<i class="ri-search-line"></i>
+										</button>
+									</li> {% endcomment %}
+
+									<li>
+										<ul class="social-link">
+											<li>
+												<a href="https://www.facebook.com/breannafoundation?mibextid=LQQJ4d" target="_blank">
+													<i class="ri-facebook-fill"></i>
+												</a>
+											</li>
+
+											<li>
+												<a href="https://www.linkedin.com/company/breanna-memorial-childhood-cancer-foundation/" target="_blank">
+													<i class="ri-linkedin-fill"></i>
+												</a>
+											</li>
+
+										</ul>
+									</li>
+									
+									<li>
+										<a href="donation.html" class="default-btn my-btn">
+											DONATE NOW
+										</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+			<div class="others-option-for-responsive">
+				<div class="container">
+					<div class="dot-menu">
+						<div class="inner">
+							<div class="circle circle-one"></div>
+							<div class="circle circle-two"></div>
+							<div class="circle circle-three"></div>
+						</div>
+					</div>
+					
+					<div class="container">
+						<div class="option-inner">
+							<div class="others-options justify-content-center d-flex align-items-center">
+								<ul>
+									<li>
+										<button type="button" class="search-icon" data-bs-toggle="modal" data-bs-target="#exampleModalsrc">
+											<i class="ri-search-line"></i>
+										</button>
+									</li>
+									<li>
+										<a href="donation.html" class="default-btn">
+											DONATE NOW
+										</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Navbar Area -->
+
+	  	{% if page.title == 'Home'%}
+
+    		{% else %}
+				<!-- Start Page Title Area -->
+				<div class="page-title-area bg-17">
+					<div class="container">
+						<div class="page-title-content">
+							<h2>{{ self.title }}</h2>
+
+<!--							<ul>-->
+<!--								<li>-->
+<!--									<a href="index.html">-->
+<!--										Home-->
+<!--									</a>-->
+<!--								</li>-->
+
+<!--								<li class="active">Blog details in Gghana and the nation of ghana</li>-->
+<!--							</ul>-->
+						</div>
+					</div>
+
+					<div class="page-bg-shape">
+						<img src="{% static 'leud_theme/assets/images/page-bg/page-bg-shape.png' %}" alt="Image">
+					</div>
+				</div>
+				<!-- End Page Title Area -->
+		{% endif %}
+
+
+		{% block content %}
+
+        {% endblock content %}
+
+		<!-- Start Footer Area -->
+		<footer class="footer-area bg-f9fafb pt-100 pb-10">
+<!--			<footer class="footer-area bg-f9fafb pt-100 pb-70">-->
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget active">
+							<a href="index.html" class="logo">
+								{% comment %} <img src="assets/images/logo.png" alt="Image"> {% endcomment %}
+								<img src="{% static 'leud_theme/assets/images/logos/breanna_cancer_foundation_new_logo_100.jpg' %}" alt="logo">
+							</a>
+							<p>The Breanna Memorial Childhood Cancer Foundation is a non-profit organization founded in Ghana in memory of Breanna Fosua Addai, who died of cancer (acute lymphoblastic leukaemia) on August 3rd, 2022.</p>
+
+							<ul class="social-link">
+								<li>
+									<h3>Follow us:</h3>
+								</li>
+
+								<li>
+									<a href="https://www.facebook.com/breannafoundation?mibextid=LQQJ4d" target="_blank">
+										<i class="ri-facebook-fill"></i>
+									</a>
+								</li>
+								<li>
+												<a href="https://www.linkedin.com/company/breanna-memorial-childhood-cancer-foundation/" target="_blank">
+													<i class="ri-linkedin-fill"></i>
+												</a>
+											</li>
+<!--								<li>-->
+<!--									<a href="https://www.instagram.com/" target="_blank">-->
+<!--										<i class="ri-instagram-line"></i>-->
+<!--									</a>-->
+<!--								</li>-->
+<!--								<li>-->
+<!--									<a href="https://twitter.com/" target="_blank">-->
+<!--										<i class="ri-twitter-fill"></i>-->
+<!--									</a>-->
+<!--								</li>-->
+<!--								<li>-->
+<!--									<a href="https://www.youtube.com/" target="_blank">-->
+<!--										<i class="ri-youtube-fill"></i>-->
+<!--									</a>-->
+<!--								</li>-->
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget">
+							<h3>Some Menu Links</h3>
+
+							<ul class="import-link">
+								<li>
+									<a href="about.html">
+										Support
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="my-account.html">
+										Source Financial
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="privacy-policy.html">
+										Advocate
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="terms-of-service.html">
+										Terms of service
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="contact.html">
+										Contact us
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget">
+							<h3>Important Links</h3>
+
+							<ul class="import-link">
+								<li>
+									<a href="blog.html">
+										Blog
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="blog-details.html">
+										Blog Details
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="causes.html">
+										Causes
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="causes-details.html">
+										Causes Details
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="donation.html">
+										Donation
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget">
+							<h3>Find us</h3>
+
+							<ul class="address">
+								<li class="location">
+									C/o Modern World Logistics Ltd<br>
+									Atlantic Tower, Regus 7th floor <br>
+									Liberation Road Airport City<br>
+<!--									P. O.Box CT 8803 Cantonments <br>-->
+									Accra - Ghana <br>
+
+								</li>
+
+								<li>
+									<a href="mailto:info@leud.com">info@breannafoundation.org</a>
+								</li>
+								<li>
+									<a href="tel:+1-(514)-312-5678" class="call-us">+233 (0) 24-459-9288 </a>
+								</li>
+								<li>
+									<a href="tel:+1-(514)-312-5679" class="call-us">+1 (514) 312-5679</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- End Footer Area -->
+
+		<!-- Start Copy Right Area -->
+		<div class="copy-right-area bg-f9fafb">
+			<div class="container">
+				<p>
+					Copyright <i class="ri-copyright-line"></i> 2023 Branna Foundation. Designed By
+					<a href="https://farandsononline.com/" target="_blank">farandsononline.com</a>
+				</p>
+			</div>
+		</div>
+		<!-- End Copy Right Area -->
+		
+		<!-- Start Go Top Area -->
+		<div class="go-top style-three">
+			<i class="ri-arrow-up-s-fill"></i>
+			<i class="ri-arrow-up-s-fill"></i>
+		</div>
+		<!-- End Go Top Area -->
+
+        {% wagtailuserbar 'bottom-left' %}
+
+        <!-- Jquery Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/jquery.min.js' %}"></script>
+        <!-- Bootstrap Bundle Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!-- Meanmenu Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/meanmenu.min.js' %}"></script>
+		<!-- Owl Carousel Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/owl.carousel.min.js' %}"></script>
+		<!-- Wow Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/wow.min.js' %}"></script>
+		<!-- Magnific Popup Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/magnific-popup.min.js' %}"></script>
+		<!-- Appear Min JS --> 
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/appear.min.js' %}"></script>
+		<!-- Odometer Min JS --> 
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/odometer.min.js' %}"></script>
+		<!-- Form Validator Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/form-validator.min.js' %}"></script>
+		<!-- Contact JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/contact-form-script.js' %}"></script>
+		<!-- Ajaxchimp Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/ajaxchimp.min.js' %}"></script>
+        <!-- Custom JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/custom.js' %}"></script>
+    </body>
+</html>

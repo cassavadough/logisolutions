@@ -1,0 +1,91 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+    <!-- Section: Gallery -->
+    <section id="gallery" class="bg-silver-light">
+      <div class="container">
+        <div class="section-title text-center">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <h2 class="text-uppercase line-bottom-center mt-0">{{ value.title }} <span class="text-theme-colored font-weight-600">{{ value.title_colored }}</span></h2>
+              <div class="title-icon">
+                <i class="flaticon-charity-hand-holding-a-heart"></i>
+              </div>
+              <p>{{ value.intro_text }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Portfolio Gallery Grid -->
+
+              <div class="gallery-isotope grid-4 gutter-small clearfix" data-lightbox="gallery">
+
+                 {% for img in value.photos %}
+                     {% image img width-500 as tmp_photo %}
+                    <!-- Portfolio Item Start -->
+                    <div class="gallery-item">
+                      <div class="thumb">
+    {#                    <img alt="project" src="http://placehold.it/285x195" class="img-fullwidth">#}
+                        {% image img fill-285x195 class="img-fullwidth" %}
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a href="{{  tmp_photo.url }}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Portfolio Item End -->
+                {% endfor %}
+
+              </div>
+              <!-- End Portfolio Gallery Grid -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{#    <!-- Section: About -->#}
+{#    <section id="about">#}
+{#      <div class="container">#}
+{#        <div class="section-content">#}
+{#          <div class="row">#}
+{#            <div class="col-md-6 mt-20">#}
+{#              <div class="row">#}
+{#                <div class="col-md-6 col-sm-6 pl-0">#}
+{#                  <div class="img-hover-border mt-sm-40">#}
+{#                      {% image value.photo_1 fill-275x335 class="img-fullwidth" %}#}
+{#                    <img class="img-fullwidth" src="http://placehold.it/275x335" alt="">#}
+{#                  </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-sm-6 pl-0 pr-0">#}
+{#                  <div class="img-hover-border mt-sm-30">#}
+{#                      {% image value.photo_2 fill-280x160 class="img-fullwidth" %}#}
+{#                    <img class="img-fullwidth" src="http://placehold.it/280x156" alt="">#}
+{#                  </div>#}
+{#                  <div class="img-hover-border mt-15 mt-sm-30">#}
+{#                      {% image value.photo_3 fill-325x160 class="img-fullwidth" %}#}
+{#                    <img class="img-fullwidth" src="http://placehold.it/325x176" alt="">#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-md-6">#}
+{#              <div class="about-details">#}
+{#                <h2 class="font-36 mt-0"> {{ value.title_start }} <span class="text-theme-colored">{{ value.title_colored }}</span> {{ value.title_end }}</h2>#}
+{#                {{ value.text }}#}
+{#                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, odioserunt provident maiores consectetur adipisicing elit. Aliquam odio dese runtesseu provident maiores libero porro dolorem est. Velit necessitatibus fugiat error incidunt excepturi doloribus officia aspernatur quod libero  Velit necessitatibus fugiat error incidunt excepturi doloribus officia</p>#}
+{##}
+{#                <a href="#" class="btn btn-flat btn-colored btn-theme-colored mt-15 mr-15">Read More</a><a href="#" class="btn btn-flat btn-colored btn-default btn-theme-colored mt-15">Get a Quote</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </section>#}

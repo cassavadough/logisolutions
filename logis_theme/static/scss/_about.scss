@@ -1,0 +1,303 @@
+/*** 
+
+====================================================================
+		About Section
+====================================================================
+
+***/
+
+.about-section {
+    position: relative;
+    padding: 120px 0 70px;
+}
+
+.about-section .sec-title {
+    margin-bottom: 25px;
+}
+
+.about-section .content-column {
+    position: relative;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+
+.about-section .content-column .inner-column {
+    position: relative;
+    padding-left: 80px;
+    padding-top: 80px;
+    margin-left: 30px;
+    margin-top: 60px;
+    background: #ffffff;
+}
+
+.about-section .text {
+    color: #7c858c;
+    margin-bottom: 20px;
+}
+
+.about-section blockquote {
+    font-size: 20px;
+    line-height: 32px;
+    padding-left: 25px;
+    border-left: 4px solid var(--border-theme-color1);
+    color: var(--theme-color2);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.about-section .bottom-box {
+    position: relative;
+    padding-right: 250px;
+}
+
+.about-section .list-style-one {
+    margin-bottom: 40px;
+}
+
+
+.about-section .bottom-box .video-box {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-section .video-box .play-now {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -35px;
+    margin-top: -35px;
+}
+
+.about-section .image-column {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.about-section .image-column .inner-column {
+    position: relative;
+    margin-right: -180px;
+}
+
+.about-section .experience {
+    position: absolute;
+    top: 80px;
+    left: -80px;
+    max-width: 190px;
+    background: var(--bg-theme-color2);
+    font-size: 18px;
+    padding: 30px 30px 30px 40px;
+    line-height: 22px;
+    color: #ffffff;
+    &:before{
+        @include absolute;
+        border-bottom: 30px solid var(--border-theme-color2);
+        border-right: 190px solid transparent;
+        content: "";
+        margin-top: -30px;
+    }
+    strong {
+        font-size: 50px;
+        color: #ffffff;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+.about-section .image-column .image-1 {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.about-section .image-column .image-1:before {
+    position: absolute;
+    right: 130px;
+    bottom: -50px;
+    height: 10px;
+    width: 200px;
+    background: var(--bg-theme-color2);
+    content: "";
+}
+
+.about-section .image-column .image-2 {
+    position: absolute;
+    left: -80px;
+    bottom: -50px;
+    border: 20px solid #ffffff;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .20);
+    margin-bottom: 0;
+}
+
+/*** 
+
+====================================================================
+		About Section Two
+====================================================================
+
+***/
+
+.about-section-two{
+    position: relative;
+    padding: 120px 0 70px;
+}
+
+.about-section-two .sec-title{
+    margin-bottom: 40px;
+}
+
+.about-section-two .sec-title .text{
+    margin-top: 15px;
+}
+
+.about-section-two .content-column {
+    position: relative;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+
+.about-section-two .content-column .inner-column {
+    position: relative;
+    margin-left: -15px;
+}
+
+.about-section-two .content-column .theme-btn {
+    margin-top: 30px;
+}
+
+
+.about-block {
+    position: relative;
+    padding-left: 110px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.about-block .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 80px;
+    width: 80px;
+    background: var(--bg-theme-color3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: var(--theme-color2);
+    transition: all 300ms ease;
+    &:after{
+        position: absolute;
+        right: -7px;
+        top: 50%;
+        margin-top: -7px;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 7px solid var(--border-theme-color3);
+        content: "";
+        transition: all 300ms ease;
+    }
+}
+
+.about-block .icon:before {
+    transition: all 300ms ease;
+}
+
+.about-block:hover .icon{
+    background-color: var(--bg-theme-color1);
+}
+
+.about-block:hover .icon:before {
+    transform: scale(-1) rotate(180deg);
+    color: #ffffff;
+}
+
+.about-block h4 {
+    position: relative;
+    font-size: 20px;
+    color: var(--theme-color1);
+    margin-top: 0px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.about-block .text{
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 5px;
+}
+
+
+
+
+.about-section-two .image-column {
+    position: relative;
+    .inner-column {
+        position: relative;
+    }
+    .image{
+        position: relative;
+        margin-bottom: 0;
+        display: block;
+        max-width: 480px;
+        &::before{
+            position: absolute;
+            right: -20px;
+            top: 50px;
+            bottom: 50px;
+            width: 20px;
+            background-color: var(--bg-theme-color2);
+            content: "";
+        }
+    }
+}
+
+.about-section-two .experience {
+    position: absolute;
+    top: 100px;
+    left: -90px;
+    .inner{
+        position: relative;
+        min-width: 240px;
+        min-height: 125px;
+        background: var(--bg-theme-color1);
+        padding: 20px 20px;
+        padding-left: 100px;
+        text-transform: uppercase;
+        @include vertical-center;
+        z-index: 2;
+    }
+    .icon{
+        @include overlay;
+        @include flex-center;
+        max-width: 100px;
+        color: var(--theme-color2);
+        font-size: 54px;
+    }
+    strong {
+        font-size: 30px;
+        line-height: 1em;
+        color: #ffffff;
+        display: block;
+        margin-bottom: 3px;
+    }
+    p{
+        font-size: 14px;
+        color: #8fa1ae;
+        line-height: 1.2em;
+        letter-spacing: 1px;
+    }
+    &:after {
+        @include overlay;
+        margin-left:10px;
+        margin-top: 10px;
+        background-image: url(../images/icons/pattern-2.png);
+        content: "";
+    }
+
+}

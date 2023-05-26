@@ -1,0 +1,149 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+<!-- Start Banner Area -->
+<section class="banner-area ptb-100">
+	<div class="d-table">
+		<div class="d-table-cell">
+			<div class="container">
+				<div class="banner-content">
+					<span class="top-title">{{value.pre_title}}</span>
+					 <h1>{{value.title}}</h1>
+                    <p>{{value.post_title}}</p>
+
+                    <div class="banner-btn">
+                        <a href="{{ value.button_page_url.url  }}" class="default-btn border-radius-btn">
+                            {{ value.button_label  }}
+                        </a>
+
+						<div class="call-wrap">
+							 <a href="tel:{{ value.phone_no }}" class="call-us">
+                                <i class="ri-phone-fill"></i>
+                                CALL US 24/7! <br>
+                                <span>{{ value.phone_no }}</span>
+                            </a>
+						</div>
+					</div>
+
+					<ul class="social-link">
+						<li>
+							<span> {{ value.social_media_intro_text|default:'Follow us'}} </span>
+						</li>
+
+						  {% for item in value.social_media_items %}
+                        <li>
+                            <a href="{{item.link}}" target="_blank">
+                                <i class="ri-{{item.social_media}}-fill"></i>
+                            </a>
+                        </li>
+                        {% endfor %}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="banner-img-2">
+		{% image value.image_785x785 fill-785x785 alt="Image" class="banner-imgs" %}
+<!--		<img src="assets/images/banner/banner-img-2.png" alt="Image" class="banner-imgs">-->
+		<img src="{% static 'leud_theme/assets/images/banner/banner-border-shape.png' %}" alt="Image" class="banner-border-shape">
+<!--		<div class="what-we-do-play">-->
+<!--			<a href="https://www.youtube.com/watch?v=dieB9zAJXGE" class="video-btn popup-youtube">-->
+<!--				<i class="ri-play-fill"></i>-->
+<!--			</a>-->
+<!--		</div>-->
+	</div>
+
+	<div class="shape-1">
+		<img src="{% static 'leud_theme/assets/images/banner/dot-shape-1.png' %}" alt="Image">
+	</div>
+	<div class="shape-2">
+		<img src="{% static 'leud_theme/assets/images/banner/dot-shape-2.png' %}" alt="Image">
+	</div>
+</section>
+<!-- End Banner Area -->
+
+
+<!-- Start Banner Area -->
+<!--<section class="banner-area used-hight">-->
+<!--    <div class="d-table">-->
+<!--        <div class="d-table-cell">-->
+<!--            <div class="container">-->
+<!--                <div class="banner-content">-->
+<!--                    <h1>{{value.title}}</h1>-->
+<!--                    <p>{{ value.text }}</p>-->
+
+<!--                    <div class="banner-btn">-->
+<!--                        <a href="about.html" class="default-btn border-radius-btn">-->
+<!--                            {{ value.button_1_label  }}-->
+<!--                        </a>-->
+
+<!--                        <div class="call-wrap">-->
+<!--                            <a href="tel:+1-(514)-312-5678" class="call-us">-->
+<!--                                <i class="ri-phone-fill"></i>-->
+<!--                                CALL US 24/7! <br>-->
+<!--                                <span>{{ value.phone_no }}</span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    {% if value.social_media_intro_text%}-->
+<!--                    <ul class="social-link">-->
+
+
+<!--                        <li>-->
+<!--                            <span> {{ value.social_media_intro_text|default:'Follow us'}} </span>-->
+<!--                        </li>-->
+
+<!--                        {% for item in value.social_media_items %}-->
+<!--                        <li>-->
+<!--                            <a href="{{item.link}}" target="_blank">-->
+<!--                                <i class="ri-{{item.social_media}}-fill"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        {% endfor %}-->
+
+<!--&lt;!&ndash;                        <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a href="https://www.facebook.com/" target="_blank">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <i class="ri-facebook-fill"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a href="https://www.twitter.com/" target="_blank">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <i class="ri-twitter-fill"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a href="https://www.linkedin.com/" target="_blank">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <i class="ri-linkedin-fill"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a href="https://www.instagram.com/" target="_blank">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <i class="ri-instagram-line"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </li>&ndash;&gt;-->
+<!--                    </ul>-->
+<!--                    {% endif %}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="banner-img">-->
+<!--&lt;!&ndash;        <img src="assets/images/banner/banner-img.png" alt="Image">&ndash;&gt;-->
+<!--        {% image value.image_945x945 fill-964x964 %}-->
+<!--    </div>-->
+<!--    <div class="banner-shape-1">-->
+<!--        <img src="{% static 'leud_theme/assets/images/banner/banner-shape.png' %}" alt="Image">-->
+<!--    </div>-->
+<!--</section>-->
+<!-- End Banner Area -->
+
+{% endif %}

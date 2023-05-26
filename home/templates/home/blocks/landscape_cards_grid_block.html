@@ -1,0 +1,90 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% if value.visible %}
+
+ <!-- class begin -->
+    <div class="class pt-120 pb-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-heading text-center mb-65">
+                        <h2 class="section-title mt--8 mb-25">{{ value.title }}</h2>
+                        <p class="heading-sub-txt mt--1 mb--8">{{ value.text }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="popular-class-buttons mb-40 text-center" id="filters">
+                        <button class="class-filter-btn active" data-filter="*">See all</button>
+                        {% for category in value.categories %}
+                                <button class="class-filter-btn" data-filter=".{{category}}">{{category}}</button>
+                        {% endfor %}
+<!--                        <button class="class-filter-btn active" data-filter="*">See all</button>-->
+<!--                        <button class="class-filter-btn" data-filter=".trending">Trending</button>-->
+<!--                        <button class="class-filter-btn" data-filter=".popularity">Popularity</button>-->
+<!--                        <button class="class-filter-btn" data-filter=".featured">Featured</button>-->
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center popular-classes-wrapper">
+                {% for card in value.cards %}
+                    {% include_block card %}
+                {% endfor %}
+            </div>
+            {% if value.button_label %}
+            <div class="row">
+                <div class="col-12">
+                    <div id="see-load-more" class="popular-class-btn text-center pt-30 mb-40">
+                        <button class="def-btn" href="{{value.page_url}}">{{ value.button_label}}</button>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <!-- class end -->
+{% endif %}
+
+<!--    &lt;!&ndash; gallery begin &ndash;&gt;-->
+<!--    <div class="gallery p-120">-->
+<!--        <div class="container">-->
+<!--            <div class="row justify-content-center">-->
+<!--                <div class="col-12">-->
+<!--                    <div class="section-heading text-center mb-70">-->
+<!--                        <h2 class="section-title mt&#45;&#45;8 mb-25">{{ value.title }}</h2>-->
+<!--                        <p class="heading-sub-txt mt&#45;&#45;1 mb&#45;&#45;8">{{ value.sub_text }}</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-xl-12 col-lg-12">-->
+<!--                    <div class="control-panel d-flex justify-content-center mb-50 mt&#45;&#45;1">-->
+<!--                        <div class="controls d-inline-flex" id="controls">-->
+<!--                            <button class="gallery-filter-btn active color-4 mr-20 pb-17" data-filter="*">Show all</button>-->
+<!--                            {% for category in value.category %}-->
+<!--                                <button class="gallery-filter-btn {{category.color}} mx-20 pb-17" data-filter=".{{ category.name}}">{{ category.name}}</button>-->
+<!--                            {% endfor %}-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row g-0 gallery-images">-->
+
+<!--                {% for pic in value.photos %}-->
+<!--                    {% include_block pic %}-->
+<!--                {% endfor %}-->
+
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <div class="gallery-btn text-center mt-70" id="load-photos">-->
+<!--                        <button class="def-btn">View All Photos</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; gallery end &ndash;&gt;-->

@@ -1,0 +1,84 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+<!-- Start Banner Area -->
+<section class="banner-area used-hight">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>{{value.title}}</h1>
+                    <p>{{ value.text }}</p>
+
+                    <div class="banner-btn">
+                        <a href="about.html" class="default-btn border-radius-btn">
+                            {{ value.button_1_label  }}
+                        </a>
+
+                        <div class="call-wrap">
+                            <a href="tel:+1-(514)-312-5678" class="call-us">
+                                <i class="ri-phone-fill"></i>
+                                CALL US 24/7! <br>
+                                <span>{{ value.phone_no }}</span>
+                            </a>
+                        </div>
+                    </div>
+                    {% if value.social_media_intro_text%}
+                    <ul class="social-link social-header" style="margin-top: 60px;">
+
+
+                        <li>
+                            <span> {{ value.social_media_intro_text|default:'Follow us'}} </span>
+                        </li>
+
+                        {% for item in value.social_media_items %}
+                        <li>
+                            <a href="{{item.link}}" target="_blank">
+                                <i class="ri-{{item.social_media}}-fill"></i>
+                            </a>
+                        </li>
+                        {% endfor %}
+
+<!--                        <li>-->
+<!--                            <a href="https://www.facebook.com/" target="_blank">-->
+<!--                                <i class="ri-facebook-fill"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="https://www.twitter.com/" target="_blank">-->
+<!--                                <i class="ri-twitter-fill"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="https://www.linkedin.com/" target="_blank">-->
+<!--                                <i class="ri-linkedin-fill"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="https://www.instagram.com/" target="_blank">-->
+<!--                                <i class="ri-instagram-line"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-img">
+<!--        <img src="assets/images/banner/banner-img.png" alt="Image">-->
+        {% image value.image_945x945 fill-964x964 %}
+    </div>
+    <div class="banner-shape-1">
+        <img src="{% static 'leud_theme/assets/images/banner/banner-shape.png' %}" alt="Image">
+    </div>
+</section>
+<!-- End Banner Area -->
+
+{% endif %}

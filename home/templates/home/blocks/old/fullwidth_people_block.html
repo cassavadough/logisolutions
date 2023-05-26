@@ -1,0 +1,51 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+   <!-- Section: volunteers -->
+    <section id="team" class="bg-silver-light">
+      <div class="container">
+        <div class="section-title text-center">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <h2 class="text-uppercase line-bottom-center mt-0">{{ value.title }}<span class="text-theme-colored font-weight-600"> {{ value.title_colored }}</span></h2>
+              <div class="title-icon">
+                <i class="flaticon-charity-hand-holding-a-heart"></i>
+              </div>
+              <p>{{ value.intro_text }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="row multi-row-clearfix">
+                {#{% if person.items|length > 1 %} Persone is more then 2 {% endif %}#}
+           {% for person in value.people %}
+            <div class="col-xs-12 col-sm-6 col-md-4 mb-30">
+              <div class="team-member clearfix">
+                <div class="team-thumb">
+                    {% image person.photo fill-360x360 class="img-fullwidth" %}
+{#                  <img alt="" src="http://placehold.it/360x360" class="img-fullwidth">#}
+                  <div class="overlay">
+                    <div class="content font-1-0">
+                       {{ person.write_up  }}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="team-info bg-theme-colored">
+                  <h3 class="mt-0 text-white font-1-0">{{ person.full_name }}</h3>
+                  <ul class="styled-icons icon-circled icon-theme-colored">
+{#                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>#}
+{#                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>#}
+{#                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>#}
+                  </ul>
+                </div>
+              </div>
+            </div>
+              {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </section>
+

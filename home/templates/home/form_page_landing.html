@@ -1,0 +1,24 @@
+{% extends "fundpro-theme-base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+
+    <section class="divider">
+      <div class="container">
+        <div class="row pt-10">
+
+        <div class="col-md-12">
+{#{{ page.intro|richtext }}#}
+            <h4 class="mt-0 mb-30 line-bottomc text-center ">{{ page.thank_you_text|richtext }} </h4>
+            Ending
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+{% endblock %}

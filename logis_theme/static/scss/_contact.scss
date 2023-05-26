@@ -1,0 +1,233 @@
+/*** 
+
+====================================================================
+    Contact Section
+====================================================================
+
+***/
+
+.contact-section {
+    position: relative;
+    padding-bottom: 100px;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.contact-section .form-column{
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form {
+    position: relative;
+    background-color: var(--bg-theme-color2);
+    padding: 55px 60px 60px;
+    .bg-image{
+        @include background;
+        @include overlay;
+        opacity: .30;
+    }
+    h4{
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: 700;
+        margin-bottom: 25px;
+    }
+}
+
+.contact-form .form-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.contact-form .form-group label {
+    font-size: 12px;
+    line-height: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    display: block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.contact-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea,
+.contact-form .form-group select {
+    position: relative;
+    display: block;
+    height: 60px;
+    width: 100%;
+    font-size: 14px;
+    color: var(--theme-color1);
+    line-height: 30px;
+    font-weight: 400;
+    padding: 14px 20px;
+    border: 1px solid #dfe8ee;
+    transition: all 300ms ease;
+}
+
+
+.contact-form .form-group input:focus,
+.contact-form .form-group select:focus,
+.contact-form .form-group textarea:focus {
+    border-color: var(--border-theme-color1);
+}
+
+.contact-form .form-group textarea {
+    height: 135px;
+    resize: none;
+}
+
+.contact-form .form-group input[type="submit"],
+.contact-form .form-group button {
+    font-size: 12px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.contact-form label.error {
+    display: block;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: capitalize;
+    line-height: 24px;
+    color: #ff0000;
+    margin-bottom: 0;
+}
+
+/***==================================
+    Range Slider One
+==================================***/
+
+.range-slider-one {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.range-slider-one .range-amount {
+    position: absolute !important;
+    right: 0;
+    top: -35px;
+    background: none;
+    text-align: right;
+    border: 0 !important;
+    padding: 0 !important;
+    max-width: 75px;
+    color: #ffffff !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.range-slider-one .ui-widget.ui-widget-content {
+    height: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .20);
+}
+
+.range-slider-one .ui-slider .ui-slider-range {
+    top: 0px;
+    height: 10px;
+    background: #ffffff;
+}
+
+.range-slider-one .ui-state-default,
+.range-slider-one .ui-widget-content .ui-state-default {
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-theme-color1);
+    cursor: pointer;
+    border-radius: 20px;
+    border: 0;
+}
+
+.range-slider-one .ui-slider-horizontal .ui-slider-handle:nth-child(2){
+    margin-left:0 !important;
+}
+
+.range-slider-one .ui-slider-horizontal .ui-slider-handle:nth-child(3) {
+    margin-left: -20px !important;
+}
+
+
+.contact-section .info-column{
+    position: relative;
+    .inner-column{
+        position: relative;
+        padding-right: 70px;
+    }
+    .branches-carousel{
+        position: relative;
+        box-shadow: 0 0 30px rgba(0, 0, 0, .10);
+        .owl-nav{
+            position: absolute;
+            right: -70px;
+            top: 0;
+            height: 100%;
+            .owl-next,
+            .owl-prev{
+                position: relative;
+                @include flex-center;
+                width: 50px;
+                height: 50%;
+                color: #ffffff;
+                font-size: 16px;
+                background-color: var(--bg-theme-color1);
+                transition: all 300ms ease;
+                &:hover{
+                    background-color: var(--bg-theme-color2);
+                }
+            }
+        }
+    }
+}
+
+.branch-block{
+    position: relative;
+    background-color: #ffffff;
+    .inner-box{
+        position: relative;
+        padding: 25px 40px 30px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, .10);
+    }
+    h5{
+        font-size: 20px;
+        line-height: 30px;
+        color: var(--theme-color1);
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    p{
+        font-size: 16px;
+        line-height: 28px;
+        color: #7c858c;
+    }
+}
+
+/***==================================
+    Google Map
+==================================***/
+
+.map {
+    position: absolute;
+    left:0;
+    bottom: 0;
+    top: 210px;
+    width:100%;
+    filter: grayscale(100%);
+}
+
+
+
+
+
+
+
+
+

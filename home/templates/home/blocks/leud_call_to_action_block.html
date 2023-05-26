@@ -1,0 +1,39 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+
+		<!-- Start Volunteers Join Area -->
+		<section class="volunteers-area pt-50 pb-100 "
+
+		{% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+
+		>
+			<div class="container">
+				<div class="volunteers-bg">
+					<div class="row align-items-center">
+						<div class="col-lg-8">
+							<div class="section-title section-title-left">
+								<span class="top-title">{{ value.title }}</span>
+								<h2>{{ value.text }}</h2>
+							</div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="text-right mb-0">
+								<a href="{{ value.button_url.url }}" class="default-btn">{{ value.button_Label}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Volunteers Join Area -->
+{% endif %}

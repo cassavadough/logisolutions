@@ -1,0 +1,26 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+        <div class="staff-card mb-40">
+            <div class="staff-card-img w_100 mb-25">
+                <a href="staff-details.html">
+                    {% image value.photo_276x300 fill-276x300 %}
+                </a>
+                <div class="kb-staff-card-social-share-1-1">
+                    <a href="#" class="staff-social-btn bg-3"><i class="icofont-plus"></i></a>
+                    {% if value.facebook %} <a href="value.facebook" class="staff-social-btn"><i class="icofont-facebook"></i></a> {% endif %}
+                    {% if value.linkedin %} <a href="{{ value.linkedin }}" class="staff-social-btn bg-1"><i class="icofont-twitter"></i></a>{% endif %}
+                    {% if value.twitter %} <a href="{{ value.twitter }}" class="staff-social-btn bg-2"><i class="icofont-pinterest"></i></a>{% endif %}
+                </div>
+            </div>
+            <div class="part-txt d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <h3 class="staff-name"><a href="staff-details.html">{{value.full_name}}</a></h3>
+                    <p class="staff-position mb-0">{{ value.role}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

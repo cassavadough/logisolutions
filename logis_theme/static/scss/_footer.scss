@@ -1,0 +1,300 @@
+
+/***
+
+==================================================================
+	Main Footer
+==================================================================
+
+***/
+
+.main-footer{
+	position: relative;
+}
+
+/* Widget Section */
+
+.main-footer .widgets-section{
+	position: relative;
+	background-color:var(--bg-theme-color1);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-size: cover;
+	padding: 180px 0 70px;
+	margin-top: -60px;
+	&:before{
+		@include overlay;
+		background-color: var(--bg-theme-color1);
+		opacity: .95;
+		content: "";
+	}
+}
+
+.main-footer.alternate .widgets-section{
+	padding-top: 120px;
+	margin-top: 0;
+}
+
+.main-footer .footer-column{
+	position:relative;
+	margin-bottom:40px;
+}
+
+.main-footer .footer-widget{
+	position:relative;
+}
+
+.main-footer .widget-title{
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom:30px;
+	position: relative;
+	display: inline-block;
+}
+
+.main-footer .about-widget{
+	position: relative;
+	padding-right: 5px;
+}
+
+.main-footer .logo{
+	position:relative;  
+	margin-bottom: 25px;
+}
+
+.main-footer .text{
+	position: relative;
+	font-size: 16px;
+	line-height: 30px;
+	color: #8fa1ae;
+	margin-bottom: 20px;
+}
+
+.subscribe-form {
+	position: relative;
+}
+
+.subscribe-form .form-group {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.subscribe-form .form-group input[type="text"],
+.subscribe-form .form-group input[type="email"] {
+	position: relative;
+	display: block;
+	height: 70px;
+	width: 100%;
+	font-size: 14px;
+	line-height: 30px;
+	color: #7c858c;
+	padding: 20px 27px;
+	padding-right: 70px;
+	background: #ffffff;
+	transition: all 300ms ease;
+}
+
+.subscribe-form .form-group .theme-btn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	display: block;
+	height: 50px;
+	width: 50px;
+	min-width: auto;
+	background-color: var(--bg-theme-color2);
+	color: #ffffff;
+	line-height: 50px;
+	text-align: center;
+	font-weight: 700;
+	padding: 0;
+}
+
+.subscribe-form .form-group .btn-style-one:before {
+	background: var(--theme-color1);
+}
+
+.subscribe-form .form-group .btn-style-one:hover {
+	color: #ffffff;
+}
+
+/*=== User LInks ===*/
+
+.user-links {
+	position: relative;
+}
+
+.user-links li {
+	position: relative;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+	margin-bottom: 14px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	a {
+		position: relative;
+		display: inline-block;
+		transition: all 300ms ease;
+		color: #8fa1ae;
+		&:hover {
+			color: #FFFFFF;
+		}
+		&:before {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 0;
+			height: 1px;
+			background-color: var(--bg-theme-color2);
+			content: "";
+			transition: all 300ms ease;
+		}
+		&:hover:before {
+			width: 100%;
+		}
+	}
+}
+
+/*Recent Posts*/
+
+.recent-posts {
+	position: relative;
+}
+
+.recent-posts .post {
+	position: relative;
+	min-height: 70px;
+	padding-left: 100px;
+	margin-bottom: 35px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.recent-posts .post .thumb {
+	@include absolute;
+	height: 70px;
+	width: 70px;
+	overflow: hidden;
+	a {
+		display: block;
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.recent-posts .post .date {
+	position: relative;
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	top: -4px;
+	color: var(--theme-color2);
+}
+
+.recent-posts .post h4 {
+	position: relative;
+	font-size: 20px;
+	font-weight: 500;
+	color: #ffffff;
+	line-height: 26px;
+	a {
+		color: #ffffff;
+		transition: all 300ms ease;
+		&:hover {
+			color: inherit;
+			opacity: .90;
+		}
+	}
+}
+
+
+/* Contact Widget */
+
+.main-footer .contact-list {
+	position: relative;
+	li {
+		position: relative;
+		display: block;
+		font-size: 16px;
+		line-height: 22px;
+		color: #8fa1ae;
+		font-weight: 400;
+		padding-left: 30px;
+		margin-bottom: 20px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		strong{
+			display: block;
+			font-size: 18px;
+			line-height: 22px;
+			color: #ffffff;
+			font-weight: 700;
+		}
+		i {
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 18px;
+			width: 20px;
+			text-align: center;
+			line-height: 25px;
+			color: var(--theme-color2);
+		}
+		a {
+			color: #8fa1ae;
+			transition: all 300ms ease;
+			&:hover {
+				color: var(--theme-color3);
+			}
+		}
+	}
+}
+
+
+
+/*=== Footer Bottom ===*/
+
+.footer-bottom{
+	position: relative;
+	background-color: #07304d;
+	width: 100%;
+}
+
+.footer-bottom .inner-container{
+	position: relative;
+	padding: 35px 0;
+	text-align: center;
+}
+
+.footer-bottom .copyright-text{
+	position: relative;
+}
+
+.footer-bottom .copyright-text p{
+	position: relative;
+	font-size: 16px;
+	line-height: 25px;
+	font-weight: 400;
+	color: #8fa1ae;
+}
+
+.footer-bottom .copyright-text a{
+	-webkit-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+	color: #8fa1ae;
+}
+
+.footer-bottom .copyright-text a:hover{
+	color: #ffffff;
+}
+

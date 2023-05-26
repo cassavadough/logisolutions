@@ -1,0 +1,167 @@
+/*** 
+
+====================================================================
+		Work Section
+====================================================================
+
+***/
+
+.work-section {
+    position: relative;
+    padding: 120px 0 70px;
+}
+
+.work-block {
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    z-index: 1;
+    text-align: center;
+}
+
+.work-block .content-box {
+    position: relative;
+    background: var(--bg-theme-color3);
+    padding: 85px 30px 30px;
+    margin-bottom: 40px;
+    transition: all 500ms ease;
+}
+
+.work-block .content-box:after {
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    bottom: -20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid var(--border-theme-color3);
+    content: "";
+    transition: all 300ms ease;
+}
+
+.work-block .inner-box:hover .content-box {
+    background: var(--bg-theme-color1);
+}
+
+.work-block .inner-box:hover .content-box:after {
+    border-top: 20px solid var(--border-theme-color3);
+}
+
+
+.work-block .inner-box .icon {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    margin-left: -50px;
+    height: 100px;
+    width: 100px;
+    background: #ffffff;
+    color: var(--theme-color2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 54px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .10);
+    transition: all 500ms ease;
+}
+
+.work-block .inner-box:hover .icon {
+    background: var(--bg-theme-color2);
+    color: #ffffff;
+}
+
+
+.work-block .inner-box .icon:after {
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    bottom: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ffffff;
+    content: "";
+    transition: all 300ms ease;
+}
+
+.work-block .inner-box:hover .icon:after {
+    border-top: 10px solid var(--border-theme-color2);
+}
+
+.work-block h4 {
+    position: relative;
+    color: var(--theme-color1);
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.work-block h4 a {
+    color: var(--theme-color1);
+    transition: all 300ms ease;
+}
+
+.work-block .inner-box:hover h4 a {
+    color: #ffffff;
+}
+
+.work-block .text {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.work-block .inner-box:hover .text {
+    color: #8fa1ae;
+}
+
+.work-block .process-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 25px;
+    color: #ffffff;
+    font-weight: 600;
+    background: var(--bg-theme-color1);
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.work-block .process-btn .count {
+    position: relative;
+    padding: 15px 10px;
+    width: 55px;
+}
+
+.work-block .process-btn .count span {
+    position: relative;
+    color: #ffffff;
+    z-index: 1;
+}
+
+
+.work-block .process-btn .count:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--bg-theme-color2);
+    content: "";
+    transition: all 500ms ease;
+}
+
+.work-block .inner-box:hover .process-btn .count:after {
+    left: 100%;
+    width: 500%;
+}
+
+
+.work-block .process-btn .btn-title {
+    display: inline-block;
+    padding: 15px 35px;
+    position: relative;
+    z-index: 2;
+}

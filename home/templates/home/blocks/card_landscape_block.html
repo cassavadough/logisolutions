@@ -1,0 +1,31 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% image value.photo_276x255  fill-276x255 as bg_image %}
+
+                <div class="col-xl-6 col-lg-12 col-md-12 popular-class-item {{value.category }}">
+                    <div class="class-card class-card-2 mb-40">
+                        <div class="part-img" data-background="{{  bg_image.url }}">
+                            <div class="kb-class-fee-wrap-1 p-rel fix">
+<!--                                <span class="class-fee">$320.00</span>-->
+<!--                                <span class="kb-class-tooltip-1">Tution Fee</span>-->
+                            </div>
+                        </div>
+                        <div class="popular-class-txt">
+                            <a href="#" class="class-catname">{{ value.category }}</a>
+                            <h3 class="class-title mt--7 mb-6"><a href="class-details.html">{{value.title}}</a></h3>
+<!--                            <span class="class-time mb-20">Time : 08:00am - 10:00am</span>-->
+                            <p class="mt--8 mb--8"> {{ value.text }}</p>
+                            <div class="class-info mt-30 d-flex justify-content-between">
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10">{{ value.footer_left_column_label }}</span>
+                                    <span class="amount d-block fz-18 color-3 fw-bold mt--8 mb--8">{{ value.footer_left_column_text }}</span>
+                                </div>
+                                <div class="box kitba-box-2 text-center">
+                                    <span class="single-info d-block fz-14 mt--4 mb-10"> {{ value.footer_right_column_label }} </span>
+                                    <span class="amount d-block fz-18 color-1 fw-bold mt--8 mb--8">{{ value.footer_right_column_text }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

@@ -1,0 +1,440 @@
+{% extends "leud-theme-base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+
+		<!-- Start Blog Details Area -->
+		<section class="blog-details-area ptb-100 general-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="blog-details-content mr-15">
+							<div class="blog-details-img">
+<!--								<img src="assets/images/blog/blog-7.jpg" alt="Image">-->
+                                {% image page.specific.feature_image_570x400 fill-850x500   %}
+									<span class="date">{{ page.specific.start_day }} <br> {{ page.specific.start_month }} </span>
+								{% if page.item_type in "Events" %} {% else %}
+								<span class="date">{{ page.specific.day_published }} <br> {{ page.specific.month_published }} </span>
+								{% endif %}
+							</div>
+
+							<div class="blog-top-content">
+								<div class="blog-content">
+									<ul class="admin">
+										{% if page.author %} <li>
+											<a href="author.html">
+												<i class="ri-user-smile-line"></i>
+												By {{ page.specific.author  }} 
+											</a>
+										</li>{% endif %}
+
+										{% comment %} <li>
+											<a href="#comment">
+												<i class="ri-chat-smile-2-line"></i>
+												03 comment
+											</a>
+										</li> {% endcomment %}
+									</ul>
+
+									{{ page.specific.body|richtext  }}
+
+
+								</div>
+{% comment %} 
+								<p>Nulla quis lorem ut libero malesuada feugiat. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. pellentesque nec, egestas non nisi. Proin eget tortor risus</p>
+
+								<p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla quis lorem ut libero malesuada feugiat. Mauris blandit aliquet elit, eget tincidunt nibh pulvinara. nisi, pretium ut lacinia in, elementum id enim</p> {% endcomment %}
+							</div>
+
+							{% comment %} <div class="tags">
+								<div class="row align-items-center">
+									<div class="col-lg-8">
+										<ul class="tag-link">
+											<li class="title">
+												<span>Tags:</span>
+											</li>
+											<li>
+												<a href="blog.html" target="_blank">
+													Charity,
+												</a>
+											</li>
+											<li>
+												<a href="blog.html" target="_blank">
+													Donation,
+												</a>
+											</li>
+											<li>
+												<a href="blog.html" target="_blank">
+													Food,
+												</a>
+											</li>
+											<li>
+												<a href="blog.html" target="_blank">
+													Education
+												</a>
+											</li>
+										</ul>
+									</div>
+
+									<div class="col-lg-4">
+										<div class="share-link">
+											<ul class="social-icon">
+												<li>
+													<span>Share On:</span>
+												</li>
+												<li>
+													<a href="https://www.facebook.com/" target="_blank">
+														<i class="ri-facebook-fill"></i>
+													</a>
+												</li>
+												<li>
+													<a href="https://www.instagram.com/" target="_blank">
+														<i class="ri-instagram-line"></i>
+													</a>
+												</li>
+												<li>
+													<a href="https://www.linkedin.com/" target="_blank">
+														<i class="ri-linkedin-fill"></i>
+													</a>
+												</li>
+												<li>
+													<a href="https://twitter.com/" target="_blank">
+														<i class="ri-twitter-fill"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div> {% endcomment %}
+
+							{% comment %} <ul class="comment" id="comment">
+								<li>
+									<img src="assets/images/blog/comment-1.jpg" alt="Image">
+									<h3>Harold McLeod</h3>
+									<span>14, May 2021</span>
+									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, quos! Pariatur ipsum aperiam alias distinctio vel molestiae id. Aut atque sequi eius omnis et? Nesciunt blanditiis incidunt.</p>
+
+									<a href="/blog-details.html" class="read-more">Reply</a>
+								</li>
+
+								<li class="margin-left">
+									<img src="assets/images/blog/comment-2.jpg" alt="Image">
+									<h3>Alex Dew</h3>
+									<span>14, May 2021</span>
+									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, quos! Pariatur ipsum aperiam alias distinctio vel molestiae id. Aut atque sequi eius omnis et? Nesciunt.</p>
+
+									<a href="/blog-details.html" class="read-more">Reply</a>
+								</li>
+
+								<li>
+									<img src="assets/images/blog/comment-3.jpg" alt="Image">
+									<h3>Juhon Smith</h3>
+									<span>14, May 2021</span>
+									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, quos! Pariatur ipsum aperiam alias distinctio vel molestiae id. Aut atque sequi eius omnis Nesciunt blanditiis.</p>
+
+									<a href="/blog-details.html" class="read-more">Reply</a>
+								</li>
+							</ul>
+
+							<div class="leave-reply">
+								<h3>Leave a reply</h3>
+
+								<form>
+									<p>Your email address will not be published. Required fields are marked*</p>
+									<div class="row">
+										<div class="col-lg-6 col-sm-6">
+											<div class="form-group">
+												<label>Name*</label>
+												<input type="text" name="name" id="name" class="form-control">
+											</div>
+										</div>
+
+										<div class="col-lg-6 col-sm-6">
+											<div class="form-group">
+												<label>Email*</label>
+												<input type="email" name="email" id="email" class="form-control">
+											</div>
+										</div>
+
+										<div class="col-12">
+											<div class="form-group">
+												<label>Your Website Link</label>
+												<input type="text" name="website" id="website" class="form-control">
+											</div>
+										</div>
+
+										<div class="col-lg-12 col-md-12">
+											<div class="form-group">
+												<label>Comment</label>
+												<textarea name="message" class="form-control" id="message" rows="8"></textarea>
+											</div>
+										</div>
+
+										<div class="col-lg-12 col-md-12">
+											<button type="submit" class="default-btn">
+												POST A COMMENT
+											</button>
+										</div>
+									</div>
+								</form>
+							</div> {% endcomment %}
+						</div>
+					</div>
+
+					<div class="col-lg-4">
+						<div class="widget-sidebar ml-15">
+							{% comment %} <div class="sidebar-widget search">
+								<form class="search-form">
+									<input class="form-control" name="search" placeholder="Search..." type="text">
+									<button class="search-button" type="submit">
+										<i class="ri-search-line"></i>
+									</button>
+								</form>
+							</div> {% endcomment %}
+
+							{% comment %} <div class="sidebar-widget categories">
+								<h3>Categories</h3>
+
+								<ul>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Charity
+										</a>
+									</li>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Clean water
+										</a>
+									</li>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Electrical
+										</a>
+									</li>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Education
+										</a>
+									</li>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Medical
+										</a>
+									</li>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Food
+										</a>
+									</li>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Donation
+										</a>
+									</li>
+									<li>
+										<a href="blog.html">
+											<i class="ri-arrow-right-s-line"></i>
+											Health
+										</a>
+									</li>
+								</ul>
+							</div> {% endcomment %}
+
+							<div class="sidebar-widget recent-post">
+								<h3 class="widget-title">Latest {{ page.item_type }}</h3>
+
+								<ul>
+									{% for item in items %}
+										<li>
+											<a href="{{ item.specific.url }}">
+												{{ item.title }}
+												{% image item.specific.feature_image_570x400 fill-570x460   %}
+												{% comment %} <img src="assets/images/blog/blog-4.jpg" alt="Image"> {% endcomment %}
+											</a>
+											<span>{{ item.publish_date }}</span>
+										</li>
+									{% endfor %}
+
+								</ul>
+							</div>
+
+
+							{% comment %} <div class="sidebar-widget tags mb-0">
+								<h3>Tags</h3>
+
+								<ul>
+									<li>
+										<a href="blog.html">Charity</a>
+									</li>
+									<li>
+										<a href="blog.html">Donation</a>
+									</li>
+									<li>
+										<a href="blog.html">Fundraising</a>
+									</li>
+									<li>
+										<a href="blog.html">Foundation</a>
+									</li>
+									<li>
+										<a href="blog.html">Nonprofit</a>
+									</li>
+									<li>
+										<a href="blog.html">Health</a>
+									</li>
+									<li>
+										<a href="blog.html">Food</a>
+									</li>
+									<li>
+										<a href="blog.html">Education</a>
+									</li>
+								</ul>
+							</div> {% endcomment %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Blog Details Area -->
+
+    <!-- Section: Blog -->
+<!--    <section>-->
+<!--      <div class="container mt-30 mb-30 pt-30 pb-30">-->
+<!--        <div class="row">-->
+
+<!--          <div class="col-md-9">-->
+<!--            <div class="blog-posts single-post">-->
+<!--              <article class="post clearfix mb-0">-->
+<!--                <div class="entry-header">-->
+<!--                  <div class="post-thumb thumb">-->
+<!--&lt;!&ndash;                      <img src="http://placehold.it/1920x1280" alt="" class="img-responsive img-fullwidth">&ndash;&gt;-->
+<!--                      {% image page.specific.feature_image fill-1920x1280  class="img-responsive img-fullwidth" %}-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="entry-content">-->
+<!--                  <div class="entry-meta media no-bg no-border mt-15 pb-20">-->
+<!--                    <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">-->
+<!--                      <ul>-->
+<!--                        <li class="font-16 text-white font-weight-600">28</li>-->
+<!--                        <li class="font-12 text-white text-uppercase">Feb</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                    <div class="media-body pl-15">-->
+<!--                      <div class="event-content pull-left flip">-->
+<!--                        <h4 class="entry-title text-white text-uppercase m-0"><a href="#">Blog :  {{ post.title}}</a></h4>-->
+<!--                        <span class="mb-10 text-gray-darkgray mr-10 font-13"><i class="fa fa-commenting-o mr-5 text-theme-colored"></i> Blog</span>-->
+<!--&lt;!&ndash;                        <span class="mb-10 text-gray-darkgray mr-10 font-13"><i class="fa fa-heart-o mr-5 text-theme-colored"></i> 895 Likes</span>&ndash;&gt;-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  {{ page.body|richtext }}-->
+<!--                  <div class="mt-30 mb-0">-->
+<!--&lt;!&ndash;                    <h5 class="pull-left mt-10 mr-20 text-theme-colored">Share:</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <ul class="styled-icons icon-circled m-0">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <li><a href="#" data-bg-color="#3A5795"><i class="fa fa-facebook text-white"></i></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <li><a href="#" data-bg-color="#55ACEE"><i class="fa fa-twitter text-white"></i></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <li><a href="#" data-bg-color="#A11312"><i class="fa fa-google-plus text-white"></i></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </ul>&ndash;&gt;-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </article>-->
+<!--              <div class="tagline p-0 pt-20 mt-5">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-md-8">-->
+<!--&lt;!&ndash;                    <div class="tags">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p class="mb-0"><i class="fa fa-tags text-theme-colored"></i> <span>Tags:</span> Law, Juggement, lawyer, Cases</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                  </div>-->
+<!--                  <div class="col-md-4">-->
+<!--                    <div class="share text-right">-->
+<!--&lt;!&ndash;                      <p><i class="fa fa-share-alt text-theme-colored"></i> Share</p>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+
+<!--            </div>-->
+<!--          </div>-->
+
+
+
+<!--          <div class="col-md-3">-->
+<!--&lt;!&ndash;            <div class="sidebar sidebar-left mt-sm-30">&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="widget">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h5 class="widget-title line-bottom">Search box</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="search-form">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <form>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <input type="text" placeholder="Click to Search" class="form-control search-input">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <span class="input-group-btn">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="widget">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h5 class="widget-title line-bottom">Categories</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="categories">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <ul class="list list-border angle-double-right">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a href="#">Creative<span>(19)</span></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a href="#">Portfolio<span>(21)</span></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a href="#">Fitness<span>(15)</span></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a href="#">Gym<span>(35)</span></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a href="#">Personal<span>(16)</span></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="widget">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h5 class="widget-title line-bottom">Latest News</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="latest-posts">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <article class="post media-post clearfix pb-0 mb-10">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="post-right">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h5 class="post-title mt-0"><a href="#">Sustainable Construction</a></h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </article>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <article class="post media-post clearfix pb-0 mb-10">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="post-right">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h5 class="post-title mt-0"><a href="#">Industrial Coatings</a></h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </article>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <article class="post media-post clearfix pb-0 mb-10">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="post-right">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h5 class="post-title mt-0"><a href="#">Storefront Installations</a></h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </article>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="widget">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h5 class="widget-title line-bottom">Photos from Flickr</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div id="flickr-feed" class="clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;                  &lt;!&ndash; Flickr Link &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                  <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=52617155@N08">&ndash;&gt;-->
+<!--&lt;!&ndash;                  </script>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--  </div>-->
+  <!-- end main-content -->
+{% endblock %}

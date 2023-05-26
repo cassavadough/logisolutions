@@ -1,0 +1,193 @@
+
+/*** 
+
+====================================================================
+    News Section
+====================================================================
+
+***/
+
+.news-section {
+    position: relative;
+    padding: 120px 0 90px;
+    overflow: hidden;
+    .bg-image{
+        @include absolute;
+        max-height: 440px;
+        height: 100%;
+        width: 100%;
+        &::before{
+            @include overlay;
+            background-color: var(--bg-theme-color3);
+            content: "";
+            opacity: .95;
+        }
+    }
+}
+
+.news-block {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.news-block .inner-box {
+    position: relative;
+    transition: all 300ms ease;
+    padding: 0 20px;
+    &:before{
+        @include absolute-bottom;
+        top: 90px;
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid #dfe8ee;
+        content: "";
+        transition: all 300ms ease;
+    }
+    &:hover:before{
+        box-shadow: 0 10px 25px rgba(0,0,0,.10);
+    }
+}
+
+.news-block .date{
+	position: absolute;
+    left: 20px;
+    bottom: 0px;
+	background: var(--theme-color2);
+	color: #ffffff;
+	z-index: 1;
+    @include vertical-center;
+    height: 70px;
+    width: 60px;
+    align-items: center;
+	font-size: 14px;
+	font-weight: 400;
+    line-height: 16px;
+	text-transform: uppercase;
+    letter-spacing: .1em;
+    padding-top: 5px;
+    b{
+        font-size: 24px;
+        color: #fff;
+        display: block;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+}
+
+
+.news-block .image-box {
+    position: relative;
+}
+
+.news-block .image {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.news-block .image-box .image a:after {
+    background: rgba(255, 255, 255, .3);
+    bottom: 0;
+    content: "";
+    left: 50%;
+    position: absolute;
+    right: 51%;
+    top: 0;
+    opacity: 1;
+    pointer-events: none;
+    transition: all 400ms linear;
+}
+
+.news-block .inner-box:hover .image-box .image a:after {
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 400ms linear;
+}
+
+.news-block .image img {
+    display: block;
+    width: 100%;
+    transition: all 400ms ease;
+}
+
+.news-block .inner-box:hover .image img {
+    transform: scale(1.1);
+}
+
+.news-block .lower-content {
+    position: relative;
+    padding: 12px 22px 35px;
+}
+
+.news-block .post-info {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.news-block .post-info li {
+    position: relative;
+    font-size: 14px;
+    line-height: 25px;
+    color: #7c858c;
+    font-weight: 400;
+    margin-right: 10px;
+}
+
+.news-block .post-info li i {
+    margin-right: 5px;
+    color: var(--theme-color2);
+    font-size: 14px;
+}
+
+.news-block h4 {
+    position: relative;
+    display: block;
+    font-size: 24px;
+    line-height: 1.2em;
+    color: var(--theme-color1);
+    font-weight: 700;
+}
+
+.news-block h4 a {
+    color: var(--theme-color1);
+    display: inline-block;
+    -webkit-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.news-block h4 a:hover {
+    color: var(--theme-color2);
+}
+
+.news-block .theme-btn{
+	width: 100%;
+	text-transform: uppercase;
+}
+
+.news-block .author {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    margin-top: 25px;
+}
+
+.news-block .author .thumb {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.news-block .author .name {
+    font-size: 14px;
+    line-height: 1em;
+    color: #819291;
+    font-weight: 600;
+}

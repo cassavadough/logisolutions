@@ -1,0 +1,25 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+        <div class="section-content">
+          <div class="row">
+            <div class="col-sm-{{ value.sm }} col-md-{{ value.md }}">
+              <div class="team box-hover-effect effect3 border-1px border-bottom-theme-color-2px sm-text-center maxwidth400 mb-sm-30">
+                <div class="thumb">
+                    {% image value.photo fill-270x270 class="img-fullwidth" %}
+{#                    <img class="img-fullwidth" src="{{  tmp_photo.url }}" alt=""></div>#}
+{#              <div class="thumb"><img class="img-fullwidth" src="http://placehold.it/270x270" alt=""></div>#}
+                <div class="content p-20 bg-white text-center">
+                  <h4 class="name mb-0 mt-0"><a class="text-theme-colored" href="#">{{ value.full_name }}</a></h4>
+                  <p>{{ value.role }}</p>
+                  <p class="mb-20 font-1">{{ value.write_up }}</p>
+                  <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
+                    {% if value.facebook %}<li><a href="{{ facebook }}"><i class="fa fa-facebook"></i></a></li> {% endif %}
+                    {% if value.twitter %}<li><a href="{{ twitter }}"><i class="fa fa-twitter"></i></a></li>{% endif %}
+                    {% if value.linkedin %}<li><a href="{{ linkedin }}"><i class="fa fa-linkedin"></i></a></li>{% endif %}
+                    {% if value.skype %}<li><a href="{{ skype }}"><i class="fa fa-skype"></i></a></li>{% endif %}
+                  </ul>
+                </div>
+              </div>
+            </div>

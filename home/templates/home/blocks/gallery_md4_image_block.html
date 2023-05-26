@@ -1,0 +1,32 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+<!--                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 gallery-image painting">-->
+<!--                    <div class="img w_100">-->
+<!--                        <img src="assets/images/gallery-img-1.jpg" alt="image">-->
+<!--                    </div>-->
+<!--                    <div class="gallery-txt p-absolute text-center d-flex flex-column align-items-center justify-content-center">-->
+<!--                        <a class="gallery-popup mb-20" href="assets/images/gallery-img-1.jpg">-->
+<!--                            <img src="assets/images/expand.png" alt="View">-->
+<!--                        </a>-->
+<!--                        <h3 class="gallery-title mt&#45;&#45;3 mb-10"><a href="class-details.html">Tiny Treasures</a></h3>-->
+<!--                        <p class="gallery-sub-title mb&#45;&#45;2">By: Smart school psd</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+{% image value.photo_370x370 fill-376x370 as photo_image %}
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 gallery-image {{ value.category|default:'untitled' }}">
+        <div class="img w_100">
+            {#<img src="assets/images/gallery-img-1.jpg" alt="image">#}
+            {% image value.photo_370x370 fill-376x370 %}
+        </div>
+        <div class="gallery-txt p-absolute text-center d-flex flex-column align-items-center justify-content-center">
+            <a class="gallery-popup mb-20" href="{{ photo_image.full_url }}">
+
+                <img src="{% static 'kidba_theme/assets/images/expand.png' %}" alt="View">
+                {# image value.photo_370x370 fill-376x370  #}
+            </a>
+            <h3 class="gallery-title mt--3 mb-10"><a href="class-details.html">{{ value.title|default:"Untitled" }}</a></h3>
+<!--            <p class="gallery-sub-title mb&#45;&#45;2">By: Smart school psd</p>-->
+        </div>
+    </div>

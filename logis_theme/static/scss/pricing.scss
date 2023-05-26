@@ -1,0 +1,129 @@
+/*** 
+
+====================================================================
+    Pricing Section
+====================================================================
+
+***/
+
+.pricing-section {
+    position: relative;
+    padding: 120px 0 90px;
+    overflow: hidden;
+    .bg-layer{
+        @include absolute-right;
+        bottom: 240px;
+        width: 51%;
+        background-color: var(--bg-theme-color2);
+        &:before{
+            @include overlay;
+            background-image: url(../images/icons/shape-1.png);
+            background-position: right top;
+            background-repeat: no-repeat;
+            content: "";
+            opacity: .5;
+        }
+    }
+}   
+
+.pricing-section .title-column{
+    position: relative;
+    .sec-title{
+        padding-right: 20px;
+    }
+    .list-style-two {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+
+.pricing-block {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.pricing-block .inner-box {
+    position: relative;
+    padding: 60px 60px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+    transition: all 300ms ease;
+    &:hover{
+        transform: translateY(-10px);
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.10);
+    }
+}
+
+.pricing-block .title {
+    position: relative;
+    display: block;
+    font-size: 20px;
+    line-height: 1.2em;
+    color: var(--theme-color2);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.pricing-block .price-box {
+    position: relative;
+    display: flex;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfe8ee;
+    .price {
+        display: block;
+        font-size: 50px;
+        font-weight: 700;
+        color: var(--theme-color1);
+        sup{
+            font-size: 60%;
+        }
+    }
+    .validaty{
+        position: relative;
+        top:14px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #7c858c;
+        margin-left: 10px;
+    }
+}
+
+.pricing-block .image{
+    position: relative;
+    margin-bottom: 0;
+}
+
+.pricing-block .features {
+    position: relative;
+    margin-bottom: 30px;
+    li {
+        position: relative;
+        display: block;
+        font-size: 16px;
+        line-height: 26px;
+        color: #7c858c;
+        font-weight: 400;
+        padding-left: 25px;
+        margin-bottom: 10px;
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            font-size: 16px;
+            line-height: 26px;
+            content: "\f058";
+            font-family: 'Font Awesome 5 Free';
+            color: var(--theme-color2);
+            font-weight: 900;
+        }
+        a {
+            color: #848484;
+        }
+    }
+}
+
+
+.pricing-block .btn-box {
+    position: relative;
+}
