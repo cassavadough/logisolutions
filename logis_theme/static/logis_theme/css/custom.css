@@ -55,6 +55,15 @@ element.style {
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
-    padding: 80px 0 40px;
+    padding: 100px 0 40px;
     margin-top: -60px;
+}
+
+.faqs-section {
+    position: relative;
+    margin-top: -80px;
+    padding: 80px 0 70px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }

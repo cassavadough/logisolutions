@@ -365,3 +365,31 @@ class TestimonialFAQComboBlock(BaseBlock):
         icon = 'user'
         template = 'home/blocks/logis_faq_block.html'
         # max_num =
+
+
+class ProductUnitBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
+    code = blocks.CharBlock()
+    image_370x670 = ImageChooserBlock()
+    # service = blocks.PageChooserBlock(page_type='services.ServicePage')
+    # button_url = blocks.URLBlock(required=False)
+    # button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        # template = 'home/blocks/logis_project_unit_block.html'
+
+
+class ProjectBlock(BaseBlock):
+    pre_title = blocks.CharBlock(required=False)
+    title = blocks.CharBlock(required=False)
+
+    # # news = blocks.ListBlock(blocks.PageChooserBlock(page_type='news.NewsPage'))
+    projects = blocks.ListBlock(ProductUnitBlock())
+    button_url = blocks.URLBlock(required=False)
+    button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_project_block.html'
+        # max_num = 1

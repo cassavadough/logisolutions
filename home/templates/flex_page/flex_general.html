@@ -1,0 +1,9 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+
+{% for block in page.body %}
+    {% include_block block %}
+{% endfor %}
+

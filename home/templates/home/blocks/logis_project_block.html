@@ -1,0 +1,52 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+  <!-- Project Section -->
+    <section class="project-section">
+        <div class="large-container">
+            <div class="sec-title text-center">
+                <span class="sub-title">{{value.pre_title}}</span>
+                <h2>{{ value.title}}</h2>
+            </div>
+
+            <!-- Prject Carousel -->
+            <div class="project-carousel owl-carousel owl-theme">
+                <!-- Project Block -->
+                {% for project in value.projects %}
+                <div class="project-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image">
+                                <a href="https://via.placeholder.com/370x570" class="lightbox-image">
+<!--                                    <img src="https://via.placeholder.com/370x570" alt="">-->
+                                    {% image project.image_370x670 fill-370x670 %}
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="content-box">
+                            <div class="inner">
+                                <span class="title">{{ project.code }}</span>
+                                <h4><a href="/projects">{{ project.title }}</a></h4>
+                                <a href="page-project-details.html" class="icon"><i class="lnr-icon-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Project Block -->
+
+
+            </div>
+        </div>
+    </section>
+    <!--End Project Section -->
+
+
+ {% endif %}

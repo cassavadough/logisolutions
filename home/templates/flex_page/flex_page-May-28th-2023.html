@@ -15,21 +15,23 @@ Delete the line below if you're just getting started and want to remove the welc
 {% block content %}
 
 flex page
-{% if page.page_template == "team" %}
+{% if this_page_type == "team" %}
 
 <!--    {% include "name_snippet.html" with person="Jane" greeting="Hello" %}-->
 
-{% elif page.page_template  == 'project' %}
-flex project
+{% elif page_type == 'project' %}
+
 <!--{% include "name_snippet.html" with person="Jane" greeting="Hello" %}-->
 
-{% elif page.page_template  == 'service' %}
-flex service
+{% elif page_type == 'service' %}
+
 <!--{% include "name_snippet.html" with person="Jane" greeting="Hello" %}-->
 
 {% else %}
+     {% for block in page.body %}
+    {% include_block block %}
+        {% endfor %}
 
-{% include "flex_page/flex_general.html" with page=page %}
 
 {% endif %}
 

@@ -6,7 +6,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Logixs | Logistics HTML Template | Home Page 02</title>
+<!--<title>Logixs | Logistics HTML Template | Home Page 02</title>-->
+        <!-- Page Title -->
+    <title>Logissolutions Ghana : {{page.title|default:"" }}</title>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="{% static 'logis_theme/css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'logis_theme/css/style.css' %}" >
@@ -74,20 +76,23 @@ Accra Ghana</div>
                             <li class="current dropdown"><a href="index.html">About Us</a>
                                 <ul>
                                     <li><a href="/about-us">Company Profile</a></li>
-                                    <li><a href="index.html">MD's Message</a></li>
-                                    <li><a href="index.html">FAQ</a></li>
-                                    <li><a href="index.html">Career</a></li>
-                                    <li><a href="index.html">Testimonials</a></li>
+                                    <li><a href="/md-message">MD's Message</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
+                                    <li><a href="/career">Career</a></li>
+                                    <li><a href="/testimonials">Testimonials</a></li>
 
                                 </ul>
                             </li>
                             <li class="current" >
-                                <a href="page-contact.html">Our Services</a>
+                                <a href="/our-services">Our Services</a>
+                            </li>
+                             <li class="current" >
+                                <a href="/news">News</a>
                             </li>
                            <li class="current dropdown"><a href="index.html">Contact Us</a>
                                 <ul>
-                                    <li><a href="index.html">Send Us an Email</a></li>
-                                    <li><a href="index.html">Request a Quote</a></li>
+                                    <li><a href="/contact">Send Us an Email</a></li>
+                                    <li><a href="/request-quotation">Request a Quote</a></li>
 
 
                                 </ul>
@@ -110,7 +115,7 @@ Accra Ghana</div>
 
 
 
-                        <a href="#" class="theme-btn btn-style-one info-btn"><span class="btn-title"><i class="icon lnr-icon-phone-handset"></i><small>Call Anytime</small><br> +233 (0)26 334 4466 / (0)24 483 2890 </span></a>
+                        <a href="#" class="theme-btn btn-style-one info-btn"><span class="btn-title"><i class="icon lnr-icon-phone-handset"></i><small>Call Anytime</small><br> +233 (0)24 483 2890 </span></a>
 
                         <!-- Mobile Nav toggler -->
                         <div class="mobile-nav-toggler"><span class="icon lnr-icon-bars"></span></div>
@@ -215,7 +220,49 @@ Accra Ghana</div>
     </header>
     <!--End Main Header -->
 
-      {% block content %}
+    {% if page.title == 'Home'%}
+
+    {% else %}
+        {% if self.banner_background_image %}
+            {% image self.banner_background_image width-1920 as bg_image %}
+        {% endif %}
+
+    	<!-- Start main-content -->
+	<section class="page-title"
+             {% if bg_image %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+		>
+		<div class="auto-container">
+			<div class="title-outer">
+				<h1 class="title">
+
+                {% if self.title %}
+                  {{ self.title }}
+                {% else %}
+                  {{title}}
+                {% endif %}</h1>
+				<ul class="page-breadcrumb">
+					<li><a href="index.html">Home</a></li>
+<!--					<li><a href="#">Pages</a></li>-->
+					<li>
+
+                {% if self.title %}
+                  {{ self.title }}
+                {% else %}
+                  {{title}}
+                {% endif %}
+
+                    </li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<!-- end main-content -->
+
+
+    <!--End Main Header -->
+    {% endif %}
+
+    {% block content %}
 
       {% endblock content %}
 

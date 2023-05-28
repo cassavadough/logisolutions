@@ -47,6 +47,15 @@ DAY_CHOICES = (
     ('26','26th'), ('27','27th'),   ('28','28th'), ('29','29th'), ('30','30th'), ('31','31st'),
 
 )
+
+PAGE_TEMPLATE = (
+    ('general','General'),
+    ('service','Service'),
+    ('product','Product'),
+    ('team','Team'),
+
+)
+
 from wagtailcaptcha.models import WagtailCaptchaEmailForm
 
 # @register_setting
@@ -70,6 +79,7 @@ from wagtailcaptcha.models import WagtailCaptchaEmailForm
 class HomePage(Page):
     # max_count = 1
     # title = models.CharField(max_length=200)
+
     body = StreamField([
         ('richtext_block', blocks.RichTextBlock(required=False)),
         ('Services_block', blocks.ServiceBlock(required=False)),
@@ -82,6 +92,7 @@ class HomePage(Page):
         ('testimonial_block', blocks.TestimonialsBlock(required=False)),
         ('blurb_block', blocks.BlurbsBlock(required=False)),
         ('frequestly_asked_questions_block', blocks.FAQBlock(required=False)),
+        ('project_block', blocks.ProjectBlock(required=False)),
 
     ], use_json_field=True, collapsed=True,  blank=True, null=True)
 
@@ -102,11 +113,12 @@ class HomePage(Page):
 
 class FlexPage(Page):
     template = 'flex_page/flex_page.html'
+    logis_page_template = models.CharField(max_length=30, choices=PAGE_TEMPLATE, blank=True, null=True, default='general')
     intro = models.CharField(max_length=250)
     feature_image = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+', blank=True, null=True
     )
-    banner_backgroun_image = models.ForeignKey(
+    banner_background_image = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+', blank=True, null=True
     )
 
@@ -121,18 +133,23 @@ class FlexPage(Page):
         ('news_block', blocks.NewsBlock(required=False)),
         ('testimonial_block', blocks.TestimonialsBlock(required=False)),
         ('blurb_block', blocks.BlurbsBlock(required=False)),
+        ('frequestly_asked_questions_block', blocks.FAQBlock(required=False)),
+        ('project_block', blocks.ProjectBlock(required=False)),
 
     ], use_json_field=True, collapsed=True, blank=True, null=True)
 
     def get_context(self, request, *args, **kwargs):
+        # this_page_type=None
+
         context = super().get_context(request, *args, **kwargs)
 
         # Add extra variables and return the updated context
         return context
 
     content_panels = Page.content_panels + [
-        FieldPanel('banner_backgroun_image'),
+        FieldPanel('banner_background_image'),
         FieldPanel('intro'),
+        FieldPanel('logis_page_template'),
         FieldPanel('feature_image'),
         FieldPanel('body'),
     ]
