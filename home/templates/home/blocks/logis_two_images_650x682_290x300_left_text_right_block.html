@@ -1,0 +1,49 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+
+
+    <!-- About Section -->
+    <section class="about-section pb-50">
+        <div class="auto-container">
+            <div class="row">
+                <div class="content-column col-lg-7 col-md-12 col-sm-12 order-2">
+                    <div class="inner-column">
+                        <div class="sec-title">
+                            <span class="sub-title">{{value.pre_text}}</span>
+                            <h2>{{ value.title}}</h2>
+                        </div>
+                        <div class="text">{{value.text}}</div>
+<!--                        <blockquote>You can simplifying your freight & logistics needs with a personal approach on logixs company.</blockquote>-->
+
+
+                        <div class="bottom-box">
+                            {% if value.button_label %}
+                        <a href="{{ value.button_page_url.link }}" class="theme-btn btn-style-one"><span class="btn-title">{{value.button_label }}</span></a>
+                        {% endif %}
+<!--                                             <a href="page-about.html" class="theme-btn btn-style-one"><span class="btn-title">Discover more</span></a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="image-column col-lg-5 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <figure class="image-1">{% image value.image_650x682 fill-650x682 %}</figure>
+                        <figure class="image-2">{% image value.image_290x300 fill-290x300 %}</figure>
+                        <div class="experience"><strong>30</strong> Years of work experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Emd About Section -->
+
+ {% endif %}

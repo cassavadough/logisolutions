@@ -1,0 +1,42 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+
+ <!-- Services Section Two -->
+    <section class="services-section-two">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <span class="sec-title">OUR SERVICES</span>
+                <h2>Moving your products <br>across all borders</h2>
+            </div>
+
+            <div class="row">
+
+                {% for service in value.services %}
+                <!-- Service Block Two -->
+                <div class="service-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                    <div class="inner-box ">
+                        <i class="icon {{service.icon }} "></i>
+                        <h4><a href="page-service-details.html">{{ service.title }}</a></h4>
+                        <div class="text">
+                            {{ service.text }}
+                        </div>
+                        <a href="/services" class="read-more">Read More</a>
+                        <figure class="image"><a href="/services">{% image service.image_340x230 fill-340x230 %}</a></figure>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Services Section Two -->
+ {% endif %}

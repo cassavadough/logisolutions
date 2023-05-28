@@ -14,7 +14,7 @@ from taggit.models import TaggedItemBase
 from wagtail.snippets.models import register_snippet
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
-
+from home import blocks
 @register_snippet
 class NewsCategory(models.Model):
     name = models.CharField(max_length=255)
@@ -107,27 +107,36 @@ class NewsPage(Page):
     news_date = models.DateField("News date", default=datetime.datetime.now)
     # start_date_time = models.DateTimeField(verbose_name='Start Date & Time',default=datetime.datetime.now)
     # end_date_time = models.DateTimeField(verbose_name="End Date & Time",default=datetime.datetime.now)
-    intro = models.CharField(max_length=250, blank=True, null=True,)
+    # intro = models.CharField(max_length=250, blank=True, null=True,)
     # info = RichTextField()
-    on_front_page = models.BooleanField(default=False, null=True, blank=True)
-    feature_image_570x400 = models.ForeignKey(
+    # on_front_page = models.BooleanField(default=False, null=True, blank=True)
+    feature_image_330x330 = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',
         null = True, blank = True
     )
-    body = RichTextField(blank=True)
+    main_image_1024x683 = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',
+        null = True, blank = True
+    )
+    body = StreamField([
+        ('richtext_block', blocks.RichTextBlock(required=False)),
+
+    ], use_json_field=True, collapsed=True, blank=True, null=True)
     tags = ClusterTaggableManager(through=NewsPageTag, blank=True)
     categories = ParentalManyToManyField('news.NewsCategory', blank=True)
     item_type = models.CharField(max_length=10, default='News', null=True, blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('author'),
-        FieldPanel('intro'),
-        FieldPanel('news_date'),
-        FieldPanel('body'),
         FieldPanel('month_published'),
         FieldPanel('day_published'),
-        # FieldPanel('on_front_page'),
-        FieldPanel('feature_image_570x400'),
+        FieldPanel('news_date'),
+        FieldPanel('feature_image_330x330'),
+        FieldPanel('main_image_1024x683'),
+        FieldPanel('body'),
+        FieldPanel('tags'),
+        FieldPanel('categories'),
+
     ]
 
     template = 'shared_templates/page_template.html'

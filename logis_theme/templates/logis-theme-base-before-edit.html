@@ -1,0 +1,497 @@
+{% load static %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% load wagtailuserbar %}
+
+<!doctype html>
+<html lang="zxx">
+    <head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Owl Theme Default Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/owl.theme.default.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Owl Carousel Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/owl.carousel.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Remixicon CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/remixicon.css' %}" rel="stylesheet" type="text/css">
+		<!-- Flaticon CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/flaticon.css' %}" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/icofont.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Meanmenu Min CSS -->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/meanmenu.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Animate Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/animate.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Magnific Popup Min CSS --> 
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/magnific-popup.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Odometer Min CSS-->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/odometer.min.css' %}" rel="stylesheet" type="text/css">
+		<!-- Navbar CSS-->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/navbar.css' %}" rel="stylesheet" type="text/css">
+		<!-- Style CSS -->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/style.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'leud_theme/assets/css/custom.css' %}" rel="stylesheet" type="text/css">
+		<!-- Responsive CSS -->
+		<link rel="stylesheet" href="{% static 'leud_theme/assets/css/responsive.css' %}" rel="stylesheet" type="text/css">
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="{% static 'leud_theme/assets/images/favicon.png' %}">
+		<!-- Title -->
+		<title>Leud - Charity & Donation HTML Template</title>
+    </head>
+
+    <body>
+		<!-- Start Preloader Area -->
+		<div class="preloader">
+			<div class="lds-ripple">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<!-- End Preloader Area -->
+
+		<!-- Start Navbar Area -->
+		<div class="navbar-area">
+			<div class="mobile-responsive-nav">
+				<div class="container">
+					<div class="mobile-responsive-menu">
+						<div class="logo">
+							<a href="\">
+								<img src="{% static 'leud_theme/assets/images/logos/logo.png' %}" alt="logo">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="desktop-nav">
+				<div class="container">
+					<nav class="navbar navbar-expand-md navbar-light">
+						<a class="navbar-brand" href="\">
+							{% comment %} <img src="assets/images/logo-color.png" alt="logo"> {% endcomment %}
+							{% comment %} <img src="{% static 'leud_theme/assets/images/logos/logo.png' %}" alt="logo"> {% endcomment %}
+							<img src="{% static 'leud_theme/assets/images/logos/breanna_cancer_foundation_new_logo_80.jpeg' %}" alt="logo">
+						</a>
+
+						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+							<ul class="navbar-nav m-auto">
+
+								<li class="nav-item">
+									<a href="/" class="nav-link {% if page.title == 'Home' %} active {% endif %}">HOME</a>
+								</li>
+
+								<li class="nav-item">
+
+
+									<a href="#" class="nav-link  {% if page.title in 'About Breanna Fosua Addai, About Us, The Board, Sponsor and Partners, News, Event, Blog' %} active {% endif %}">
+										ABOUT
+										<i class="ri-arrow-down-s-line"></i>
+									</a>
+
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+											<a href="/about-breanna-fosua-addai" class="nav-link">Breanna Fosua Addai</a>
+										</li>
+										<li class="nav-item">
+											<a href="/about-us" class="nav-link">The Organization</a>
+										</li>
+										<li class="nav-item">
+											<a href="/the-board" class="nav-link">The Board</a>
+										</li>
+										<li class="nav-item">
+											<a href="/sponsors-and-partners" class="nav-link">Sponsors & Partners</a>
+										</li>
+										<li class="nav-item">
+											<a href="/news" class="nav-link">News</a>
+										</li>
+										<li class="nav-item">
+											<a href="/event" class="nav-link">Events</a>
+										</li>
+										<li class="nav-item">
+											<a href="/blog" class="nav-link">Blog</a>
+										</li>
+
+									</ul>
+								</li>
+
+
+								<li class="nav-item">
+
+									<a href="#" class="nav-link {% if page.title in ' Donate, Raise Funds, Attend Our Events, Become a Partner, Volunteer' %} active {% endif %}">
+										GET INVOLVED
+										<i class="ri-arrow-down-s-line"></i>
+									</a>
+
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+											<a href="/donate" class="nav-link">Donate</a>
+										</li>
+										<li class="nav-item">
+											<a href="/raise-funds" class="nav-link">Raise Funds</a>
+										</li>
+										<li class="nav-item">
+											<a href="/attend-our-events" class="nav-link">Attend Our Event</a>
+										</li>
+
+										<li class="nav-item">
+											<a href="/become-a-partner" class="nav-link">Become a Sponsor / Partner</a>
+										</li>
+
+										<li class="nav-item">
+											<a href="/volunteer" class="nav-link">Volunteer</a>
+										</li>
+
+
+
+									</ul>
+								</li>
+
+								<li class="nav-item">
+									<a href="#" class="nav-link {% if page.title in ' What We Do, Projects, Our Products, Reports ' %} active {% endif %}">
+										OUR WORK 
+										<i class="ri-arrow-down-s-line"></i>
+									</a>
+
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+											<a href="/what-we-do" class="nav-link">What We do</a>
+										</li>
+										<li class="nav-item">
+											<a href="/cause" class="nav-link">Our Causes</a>
+										</li>
+										<li class="nav-item">
+											<a href="/project" class="nav-link">Our Projects</a>
+										</li>
+<!--										<li class="nav-item">-->
+<!--											<a href="/reports" class="nav-link">Reports</a>-->
+<!--										</li>-->
+										{% comment %} <li class="nav-item">
+											<a href="/annual-reports" class="nav-link">Annual Reports</a>
+										</li> {% endcomment %}
+									</ul>
+								</li>
+
+
+
+								<li class="nav-item">
+									<a href="/story" class="nav-link {% if page.title in ' Story, Stories ' %} active {% endif %}">STORIES</a>
+								
+								</li>
+
+								<li class="nav-item">
+									<a href="/contact-us" class="nav-link {% if page.title in ' Contact, Contact Us' %} active {% endif %}">CONTACT</a>
+								</li>
+							</ul>
+
+							<div class="others-options">
+								<ul>
+									{% comment %} <li>
+										<button type="button" class="search-icon" data-bs-toggle="modal" data-bs-target="#exampleModalsrc">
+											<i class="ri-search-line"></i>
+										</button>
+									</li> {% endcomment %}
+
+									<li>
+										<ul class="social-link">
+											<li>
+												<a href="https://www.facebook.com/breannafoundation?mibextid=LQQJ4d" target="_blank">
+													<i class="ri-facebook-fill"></i>
+												</a>
+											</li>
+
+											<li>
+												<a href="https://www.linkedin.com/company/breanna-memorial-childhood-cancer-foundation/" target="_blank">
+													<i class="ri-linkedin-fill"></i>
+												</a>
+											</li>
+
+										</ul>
+									</li>
+									
+									<li>
+										<a href="donate" class="default-btn my-btn">
+											DONATE NOW
+										</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+			<div class="others-option-for-responsive">
+				<div class="container">
+					<div class="dot-menu">
+						<div class="inner">
+							<div class="circle circle-one"></div>
+							<div class="circle circle-two"></div>
+							<div class="circle circle-three"></div>
+						</div>
+					</div>
+					
+					<div class="container">
+						<div class="option-inner">
+							<div class="others-options justify-content-center d-flex align-items-center">
+								<ul>
+									<li>
+										<button type="button" class="search-icon" data-bs-toggle="modal" data-bs-target="#exampleModalsrc">
+											<i class="ri-search-line"></i>
+										</button>
+									</li>
+									<li>
+										<a href="/donate" class="default-btn">
+											DONATE NOW
+										</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Navbar Area -->
+
+	  	{% if page.title == 'Home'%}
+
+    		{% else %}
+				<!-- Start Page Title Area -->
+				<div class="page-title-area bg-17">
+					<div class="container">
+						<div class="page-title-content">
+							<h2>{{ self.title }}</h2>
+
+							{% if page.item_type %}
+							<ul>
+								<li>
+									<a href="{{ page.get_parent.url }}">
+										{% if page.item_type in 'Story' %}
+										Stories
+										{% elif page.item_type in 'News' %}
+										News
+										{% else %}
+											{{ page.item_type }}s
+										{% endif %}
+									</a>
+								</li>
+
+								<li class="active">{{ page.item_type }}</li>
+							</ul>
+							{% endif %}
+<!--							<ul>-->
+<!--								<li>-->
+<!--									<a href="index.html">-->
+<!--										Home-->
+<!--									</a>-->
+<!--								</li>-->
+
+<!--								<li class="active">Blog details in Gghana and the nation of ghana</li>-->
+<!--							</ul>-->
+						</div>
+					</div>
+
+					<div class="page-bg-shape">
+						<img src="{% static 'leud_theme/assets/images/page-bg/page-bg-shape.png' %}" alt="Image">
+					</div>
+				</div>
+				<!-- End Page Title Area -->
+		{% endif %}
+
+
+		{% block content %}
+
+        {% endblock content %}
+
+		<!-- Start Footer Area -->
+		<footer class="footer-area bg-f9fafb pt-100 pb-10">
+<!--			<footer class="footer-area bg-f9fafb pt-100 pb-70">-->
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget active">
+							<a href="index.html" class="logo">
+								{% comment %} <img src="assets/images/logo.png" alt="Image"> {% endcomment %}
+								<img src="{% static 'leud_theme/assets/images/logos/breanna_cancer_foundation_new_logo_100.jpg' %}" alt="logo">
+							</a>
+							<p>The Breanna Memorial Childhood Cancer Foundation is a non-profit organization founded in Ghana in memory of Breanna Fosua Addai, who died of cancer (acute lymphoblastic leukaemia) on August 3rd, 2022.</p>
+
+							<ul class="social-link">
+								<li>
+									<h3>Follow us:</h3>
+								</li>
+
+								<li>
+									<a href="https://www.facebook.com/breannafoundation?mibextid=LQQJ4d" target="_blank">
+										<i class="ri-facebook-fill"></i>
+									</a>
+								</li>
+								<li>
+												<a href="https://www.linkedin.com/company/breanna-memorial-childhood-cancer-foundation/" target="_blank">
+													<i class="ri-linkedin-fill"></i>
+												</a>
+											</li>
+
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget">
+							<h3>Some Menu Links</h3>
+
+							<ul class="import-link">
+								<li>
+									<a href="about.html">
+										The Organization
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/what-we-do">
+										What We Do
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/story">
+										Stories
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/project">
+										Our Projects
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/cause">
+										Our Causes
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget">
+							<h3>How can you Help</h3>
+
+							<ul class="import-link">
+								<li>
+									<a href="/donate">
+										Donate
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/raise-funds">
+										Raise Funds
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/volunteer">
+										Volunteer
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/become-a-partner">
+										Become A Partner
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/attend-our-events">
+										Attend our Events
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-footer-widget">
+							<h3>Find us</h3>
+
+							<ul class="address">
+								<li class="location">
+									C/o Modern World Logistics Ltd<br>
+									Atlantic Tower, Regus 7th floor <br>
+									Liberation Road Airport City<br>
+<!--									P. O.Box CT 8803 Cantonments <br>-->
+									Accra - Ghana <br>
+
+								</li>
+
+								<li>
+									<a href="mailto:info@breannafoundation.org">info@breannafoundation.org</a>
+								</li>
+								<li>
+									<a href="tel:+1-(514)-312-5678" class="call-us">+233 (0) 24-459-9288 </a>
+								</li>
+								{% comment %} <li>
+									<a href="tel:+1-(514)-312-5679" class="call-us">+1 (514) 312-5679</a>
+								</li> {% endcomment %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- End Footer Area -->
+
+		<!-- Start Copy Right Area -->
+		<div class="copy-right-area bg-f9fafb">
+			<div class="container">
+				<p>
+					Copyright <i class="ri-copyright-line"></i> 2023 Branna Foundation. Designed By
+					<a href="https://farandsononline.com/" target="_blank">farandsononline.com</a>
+				</p>
+			</div>
+		</div>
+		<!-- End Copy Right Area -->
+		
+		<!-- Start Go Top Area -->
+		<div class="go-top style-three">
+			<i class="ri-arrow-up-s-fill"></i>
+			<i class="ri-arrow-up-s-fill"></i>
+		</div>
+		<!-- End Go Top Area -->
+
+        {% wagtailuserbar 'bottom-left' %}
+
+        <!-- Jquery Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/jquery.min.js' %}"></script>
+        <!-- Bootstrap Bundle Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!-- Meanmenu Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/meanmenu.min.js' %}"></script>
+		<!-- Owl Carousel Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/owl.carousel.min.js' %}"></script>
+		<!-- Wow Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/wow.min.js' %}"></script>
+		<!-- Magnific Popup Min JS -->
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/magnific-popup.min.js' %}"></script>
+		<!-- Appear Min JS --> 
+        <script type="text/javascript" src="{% static 'leud_theme/assets/js/appear.min.js' %}"></script>
+		<!-- Odometer Min JS --> 
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/odometer.min.js' %}"></script>
+		<!-- Form Validator Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/form-validator.min.js' %}"></script>
+		<!-- Contact JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/contact-form-script.js' %}"></script>
+		<!-- Ajaxchimp Min JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/ajaxchimp.min.js' %}"></script>
+        <!-- Custom JS -->
+		<script type="text/javascript" src="{% static 'leud_theme/assets/js/custom.js' %}"></script>
+    </body>
+</html>

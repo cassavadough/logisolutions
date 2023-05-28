@@ -1,0 +1,68 @@
+
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+
+ <section class="testimonial-section-two">
+        <div class="auto-container">
+            <div class="row">
+                <div class="title-column col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="sec-title light">
+                            <span class="sub-title"> {{value.pre_title }}</span>
+                            <h2> {{ value.title }}</h2>
+                            <div class="text"> {{ value.text }}</div>
+                        </div>
+
+                        <div class="swiper-nav">
+                            <div class="swiper-prev"><span class="fa fa-long-arrow-alt-left"></span></div>
+                            <div class="swiper-next"><span class="fa fa-long-arrow-alt-right"></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-column col-lg-8 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <!-- Swiper -->
+                        <div class="swiper-container testimonial-slider">
+                            <div class="swiper-wrapper">
+
+                                {% for testimonial in value.testimonials %}
+                                <!-- Testimonial Block Two -->
+                                <div class="testimonial-block-two {% cycle '' 'style-two' %} swiper-slide">
+                                    <div class="inner-box">
+                                        <div class="thumb">
+                                            {% image testimonial.photo_130x130 fill-130x130 %}
+<!--                                            <img src="https://via.placeholder.com/130x130" alt="">-->
+                                        </div>
+                                        <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        <h4 class="name">{{testimonial.name}}</h4>
+                                        <span class="designation">{{ testimonial.role }}</span>
+                                        <div class="text"> {{ testimonial.message }}</div>
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Testimonial Section Two -->
+
+{% endif %}

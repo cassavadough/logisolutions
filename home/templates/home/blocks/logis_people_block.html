@@ -1,0 +1,59 @@
+
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+
+
+ <!-- Team Section -->
+    <section class="team-section pt-0">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <span class="sub-title"> {{ value.pre_title}}</span>
+                <h2>{{ value.title}}</h2>
+            </div>
+
+            <div class="row">
+                {% for person in value.people %}
+                <!-- Team block -->
+                <div class="team-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image">
+                                <a href="page-team-details.html">
+<!--                                    <img src="https://via.placeholder.com/270x420" alt="">-->
+                                    {% image person.photo_270x420 fill-270x420 %}
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="info-box">
+
+                            <div class="social-links">
+                                {% for social_link in person.social_media_links %}
+                                <a href="{{ social_link.link }}"><i class="{{ social_link.social_media }}"></i></a>
+<!--                                <a href="#"><i class="fab fa-facebook-f"></i></a>-->
+<!--                                <a href="#"><i class="fab fa-pinterest-p"></i></a>-->
+<!--                                <a href="#"><i class="fab fa-instagram"></i></a>-->
+                                {% endfor %}
+                            </div>
+                            <span class="share-icon fa fa-share-alt"></span>
+                            <span class="designation">{{ person.role }}</span>
+                            <h4 class="name"><a href="page-team-details.html">{{ person.full_name }}</a></h4>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Team block -->
+
+            </div>
+        </div>
+    </section>
+    <!-- End Team Section -->
+
+ {% endif %}

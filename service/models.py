@@ -14,6 +14,7 @@ from taggit.models import TaggedItemBase
 from wagtail.snippets.models import register_snippet
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
+from home import blocks
 
 @register_snippet
 class ServiceCategory(models.Model):
@@ -36,7 +37,7 @@ class ServiceCategory(models.Model):
 
 
 class ServiceIndexPage(Page):
-    subpage_types = ['news.ServicePage', ]
+    subpage_types = ['service.ServicePage', ]
     max_count = 1
     # intro = RichTextField(blank=True)
     intro = models.CharField(max_length=120, null=True, blank=True)
@@ -73,7 +74,7 @@ class ServiceIndexPage(Page):
             # Then return the last page
             posts = paginator.page(paginator.num_pages)
 
-        context['item_type'] = 'news'
+        context['item_type'] = 'service'
 
         # "posts" will have child pages; you'll need to use .specific in the template
         # in order to access child properties, such as youtube_video_id and subtitle
@@ -85,7 +86,7 @@ class ServiceIndexPage(Page):
     #     context = super().get_context(request, *args, **kwargs)
     #
     #     # Add extra variables and return the updated context
-    #     context['item_type'] = 'news'
+    #     context['item_type'] = 'service'
     #     context['items'] = ServicePage.objects.child_of(self).live()
     #     return context
         
@@ -99,35 +100,35 @@ class ServicePageTag(TaggedItemBase):
 
 class ServicePage(Page):
     page_description = "Use this page for all Service related pages"
-    parent_page_types = ['news.ServiceIndexPage']
-    author = models.CharField(max_length=50, null=True, blank=True)
+    parent_page_types = ['service.ServiceIndexPage']
+    # author = models.CharField(max_length=50, null=True, blank=True)
     # date = models.DateField("End date")
-    month_published = models.CharField(max_length=4, choices=MONTH_CHOICES, default='JAN', null=True, blank=True)
-    day_published = models.CharField(max_length=5, choices = DAY_CHOICES, default='01', null=True, blank=True)
-    news_date = models.DateField("Service date", default=datetime.datetime.now)
+    # month_published = models.CharField(max_length=4, choices=MONTH_CHOICES, default='JAN', null=True, blank=True)
+    # day_published = models.CharField(max_length=5, choices = DAY_CHOICES, default='01', null=True, blank=True)
+    # service_date = models.DateField("Service date", default=datetime.datetime.now)
     # start_date_time = models.DateTimeField(verbose_name='Start Date & Time',default=datetime.datetime.now)
     # end_date_time = models.DateTimeField(verbose_name="End Date & Time",default=datetime.datetime.now)
     intro = models.CharField(max_length=250, blank=True, null=True,)
     # info = RichTextField()
-    on_front_page = models.BooleanField(default=False, null=True, blank=True)
-    feature_image_570x400 = models.ForeignKey(
+    # on_front_page = models.BooleanField(default=False, null=True, blank=True)
+    feature_image_340x230 = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',
         null = True, blank = True
     )
-    body = RichTextField(blank=True)
+    body = StreamField([
+        ('richtext_block', blocks.RichTextBlock(required=False)),
+
+    ], use_json_field=True, collapsed=True, blank=True, null=True)
     tags = ClusterTaggableManager(through=ServicePageTag, blank=True)
-    categories = ParentalManyToManyField('news.ServiceCategory', blank=True)
+    categories = ParentalManyToManyField('service.ServiceCategory', blank=True)
     item_type = models.CharField(max_length=10, default='Service', null=True, blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('author'),
+        # FieldPanel('author'),
         FieldPanel('intro'),
-        FieldPanel('news_date'),
         FieldPanel('body'),
-        FieldPanel('month_published'),
-        FieldPanel('day_published'),
         # FieldPanel('on_front_page'),
-        FieldPanel('feature_image_570x400'),
+        FieldPanel('feature_image_340x230'),
     ]
 
     template = 'shared_templates/page_template.html'

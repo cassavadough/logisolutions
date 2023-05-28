@@ -23,11 +23,12 @@ class BaseBlock(blocks.StructBlock):
     #f9fafb;
     default_background = blocks.ChoiceBlock(choices=[
         ('#ffffff', 'White'),
-        ('#0b3b5e', 'Blue'),
+        ('#0b3b5e', 'Royal Blue'),
+        ('#ebf1f5', 'Light Blue'),
         ('#f9fafb', 'Gray'),
     ], icon='cup', required=False)
     background_image_width_1920 = ImageChooserBlock(required=False)
-    visible = blocks.BooleanBlock(required=False)
+    visible = blocks.BooleanBlock(default=True,required=False)
 
     class Meta:
         abstract = True
@@ -37,10 +38,10 @@ class SocialMediaItemBlock(blocks.StructBlock):
     link = blocks.URLBlock()
     social_media = blocks.ChoiceBlock(choices=[
         # ('None', 'None'),
-        ('facebook', 'Facebook'),
-        ('twitter', 'Twitter'),
-        ('instagram', 'Instagram'),
-        ('linkedin', 'LinkedIn'),
+        ('fab fa-facebook-f', 'Facebook'),
+        ('fab fa-pinterest-p', 'Twitter'),
+        ('fab fa-instagram', 'Instagram'),
+        ('fab fa-linkedin', 'LinkedIn'),
     ], icon='cup', required=False)
 
     class Meta:
@@ -51,7 +52,7 @@ class HomeTwoBannerBlockUnit(blocks.StructBlock):
     pre_text = blocks.CharBlock()
     text = blocks.CharBlock(required=False)
     image_619x518 = ImageChooserBlock()
-    button_label = blocks.CharBlock()  # Will determin if Button Shows
+    button_label = blocks.CharBlock(required=False)  # Will determin if Button Shows
     button_page_url = blocks.PageChooserBlock(required=False)
 
 
@@ -59,32 +60,49 @@ class Image480x700LeftTextRightBlock(BaseBlock):
     image_480x700 = ImageChooserBlock()
     pre_title = blocks.CharBlock()
     title = blocks.CharBlock()
-    text = blocks.CharBlock()
-    utton_label = blocks.CharBlock()  # Will determin if Button Shows
+    text = blocks.RichTextBlock()
+    button_label = blocks.CharBlock(required=False)  # Will determin if Button Shows
     button_page_url = blocks.PageChooserBlock(required=False)
 
     class Meta:
         icon = 'user'
         template = 'home/blocks/logis_image_480x700_left_text_right_block.html'
-        max_num = 1
+        # max_num = 1
 
 
-class BlurbBlock(blocks.StructBlock):
+class TwoImages650x682And290x300LeftTextRightBlock(BaseBlock):
+    image_650x682 = ImageChooserBlock()
+    image_290x300 = ImageChooserBlock()
+    pre_title = blocks.CharBlock()
     title = blocks.CharBlock()
-    text = blocks.CharBlock()
-    icon_100x100 = ImageChooserBlock(required=False)
-    image_340x230 = ImageChooserBlock()
-    read_more = blocks.PageChooserBlock()
+    text = blocks.RichTextBlock()
+    button_label = blocks.CharBlock(required=False)  # Will determin if Button Shows
+    button_page_url = blocks.PageChooserBlock(required=False)
 
     class Meta:
         icon = 'user'
-        template = 'home/blocks/logis_section_blurb_block.html'
+        template = 'home/blocks/logis_two_images_650x682_290x300_left_text_right_block.html'
+        # max_num = 1
+
+
+class BlurbUnitBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
+    text = blocks.CharBlock()
+    icon_120x120 = blocks.CharBlock()
+    image_120x120 = ImageChooserBlock(required=False)
+    link_url = blocks.PageChooserBlock(required=False)
+
+
+    class Meta:
+        icon = 'user'
+        # template = 'home/blocks/logis_section_blurb_block.html'
 
 
 class BlurbsBlock(BaseBlock):
     pre_title = blocks.CharBlock(required=False)
     title = blocks.CharBlock(required=False)
-    blurbs = blocks.ListBlock(BlurbBlock())
+    blurbs = blocks.ListBlock(BlurbUnitBlock())
+    # is_list = blocks.BooleanBlock(required=False)
 
     class Meta:
         icon = 'user'
@@ -93,8 +111,8 @@ class BlurbsBlock(BaseBlock):
 
 class CallToActionBlock(BaseBlock):
     text = blocks.CharBlock()
-    button_url = blocks.PageChooserBlock()
-    button_Label = blocks.CharBlock()
+    button_url = blocks.PageChooserBlock(required=False)
+    button_label = blocks.CharBlock(required=False)
 
     class Meta:
         icon = 'user'
@@ -114,8 +132,8 @@ class PersonBlock(blocks.StructBlock):
 
 
 class PeopleBlock(BaseBlock):
+    pre_title = blocks.CharBlock(required=False)
     title = blocks.CharBlock(required=False)
-    intro_text = blocks.CharBlock(required=False)
     people = blocks.ListBlock(
         PersonBlock(),
     )
@@ -126,8 +144,22 @@ class PeopleBlock(BaseBlock):
         icon = 'user'
         template = 'home/blocks/logis_people_block.html'
 
+#
+# class PeopleBlock(BaseBlock):
+#     title = blocks.CharBlock(required=False)
+#     text = blocks.CharBlock(required=False)
+#     # people = blocks.ListBlock(
+#     #     PersonBlock(),
+#     # )
+#     button_url = blocks.URLBlock(required=False)
+#     button_Label = blocks.CharBlock(required=False)
+#
+#     class Meta:
+#         icon = 'user'
+#         template = 'home/blocks/logis_people_block.html'
 
-class TestimonialBlock(blocks.StructBlock):
+
+class TestimonialUnitBlock(blocks.StructBlock):
     name = blocks.CharBlock()
     role = blocks.CharBlock()
     rating = blocks.IntegerBlock()
@@ -136,23 +168,34 @@ class TestimonialBlock(blocks.StructBlock):
 
     class Meta:
         icon = 'user'
-        template = 'home/blocks/logis_testimonial_block.html'
+        # template = 'home/blocks/logis_testimonial_unit_block.html'
 
 
 class TestimonialsBlock(BaseBlock):
     pre_title = blocks.CharBlock()
     title = blocks.CharBlock()
-    text = blocks.CharBlock()
-    testimonials = blocks.ListBlock(TestimonialBlock())
+    text = blocks.CharBlock(required=False)
+    testimonials = blocks.ListBlock(TestimonialUnitBlock())
 
     class Meta:
         icon = 'user'
         template = 'home/blocks/logis_testimonials_block.html'
 
 
+class BlogUnitBlock(blocks.StructBlock):
+    # title = blocks.CharBlock()
+    blog = blocks.ListBlock(blocks.PageChooserBlock(page_type='blog.BlogPage'))
+    # ?button_url = blocks.URLBlock(required=False)
+    # button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_blog_unit_block.html'
+
+
 class BlogsBlock(BaseBlock):
-    title = blocks.CharBlock()
-    text = blocks.RichTextBlock()
+    title = blocks.CharBlock(required=False)
+    text = blocks.RichTextBlock(required=False)
     blogs = blocks.ListBlock(blocks.PageChooserBlock(page_type='blog.BlogPage'))
     button_url = blocks.URLBlock(required=False)
     button_Label = blocks.CharBlock(required=False)
@@ -163,10 +206,22 @@ class BlogsBlock(BaseBlock):
         # max_num = 1
 
 
+class NewsUnitBlock(blocks.StructBlock):
+    # title = blocks.CharBlock()
+    news_item = blocks.PageChooserBlock(page_type='news.NewsPage')
+    # ?button_url = blocks.URLBlock(required=False)
+    # button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_news_unit_block.html'
+
+
 class NewsBlock(BaseBlock):
-    pre_title = blocks.CharBlock()
-    title = blocks.CharBlock()
-    news = blocks.ListBlock(blocks.PageChooserBlock(page_type='news.NewsPage'))
+    pre_title = blocks.CharBlock(required=False)
+    title = blocks.CharBlock(required=False)
+    # news = blocks.ListBlock(blocks.PageChooserBlock(page_type='news.NewsPage'))
+    news = blocks.ListBlock(NewsUnitBlock())
     button_url = blocks.URLBlock(required=False)
     button_Label = blocks.CharBlock(required=False)
 
@@ -176,7 +231,7 @@ class NewsBlock(BaseBlock):
         # max_num = 1
 
 
-class RichTextBlock(BaseBlock):
+class RichTextBlock(BaseBlock): #Product Description section
     title = blocks.CharBlock()
     text = blocks.RichTextBlock()
     button_label = blocks.CharBlock(required=False)
@@ -184,16 +239,17 @@ class RichTextBlock(BaseBlock):
 
     class Meta:
         icon = 'user'
-        template = 'home/blocks/leud_rich_text_block.html'
+        template = 'home/blocks/logis_rich_text_block.html'
 
 
-class ContactSectionAddressBlockUnit(blocks.StructBlock):
+class ContactUnitAddressBlock(blocks.StructBlock):
     location = blocks.CharBlock()
-    text = blocks.RichTextBlock(required=False)
+    phone = blocks.CharBlock()
+    text = blocks.CharBlock()
 
 
 class ContactSectionBlock(blocks.StructBlock):
-    addresses = blocks.ListBlock(ContactSectionAddressBlockUnit)
+    addresses = blocks.ListBlock(ContactUnitAddressBlock)
 
     class Meta:
         icon = 'user'
@@ -210,3 +266,102 @@ class SponsorsSliderBlock(BaseBlock):
         max_num = 1
 
 
+class ServiceUnitBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
+    text = blocks.CharBlock()
+    icon = blocks.CharBlock(required=False)
+    image_340x230 = ImageChooserBlock()
+    # service = blocks.PageChooserBlock(page_type='services.ServicePage')
+    # button_url = blocks.URLBlock(required=False)
+    # button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_service_unit_block.html'
+
+
+class ServiceBlock(BaseBlock):
+    title = blocks.CharBlock(required=False)
+    text = blocks.CharBlock(required=False)
+
+    # # news = blocks.ListBlock(blocks.PageChooserBlock(page_type='news.NewsPage'))
+    services = blocks.ListBlock(ServiceUnitBlock())
+    button_url = blocks.URLBlock(required=False)
+    button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_service_block.html'
+        # max_num = 1
+
+
+class ServiceType1Block(BaseBlock):
+    pre_title = blocks.CharBlock(required=False)
+    title = blocks.CharBlock(required=False)
+    # # news = blocks.ListBlock(blocks.PageChooserBlock(page_type='news.NewsPage'))
+    # services = blocks.ListBlock(ServiceUnitBlock())
+    # button_url = blocks.URLBlock(required=False)
+    # button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_service_type_1_block.html'
+        # max_num = 1
+
+
+class ServiceType2Block(BaseBlock):
+    pre_title = blocks.CharBlock(required=False)
+    title = blocks.CharBlock(required=False)
+    # # news = blocks.ListBlock(blocks.PageChooserBlock(page_type='news.NewsPage'))
+    # services = blocks.ListBlock(ServiceUnitBlock())
+    # button_url = blocks.URLBlock(required=False)
+    # button_Label = blocks.CharBlock(required=False)
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_service_type_2_block.html'
+        # max_num = 1
+
+
+class CheckedListBlock(BaseBlock):
+    title = blocks.CharBlock(required=False)
+    text = blocks.CharBlock(required=False)
+    list_items = blocks.ListBlock(blocks.CharBlock())
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_checked_list_block.html'
+        # max_num = 1
+
+
+class FAQUnitBlock(blocks.StructBlock):
+    question = blocks.CharBlock()
+    answer = blocks.CharBlock()
+
+    class Meta:
+        icon = 'user'
+        # template = 'home/blocks/logis_checked_list_block.html'
+        # max_num = 1
+
+
+class FAQBlock(BaseBlock):
+    pre_title = blocks.CharBlock(required=False)
+    title = blocks.CharBlock(required=False)
+    text = blocks.CharBlock(required=False)
+    faq_items = blocks.ListBlock(FAQUnitBlock())
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_faq_block.html'
+        # max_num =
+
+
+class TestimonialFAQComboBlock(BaseBlock):
+    title = blocks.CharBlock(required=False)
+    text = blocks.CharBlock(required=False)
+    # faq_items = blocks.ListBlock(FAQUnitBlock())
+
+    class Meta:
+        icon = 'user'
+        template = 'home/blocks/logis_faq_block.html'
+        # max_num =

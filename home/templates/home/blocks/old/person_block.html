@@ -1,25 +1,26 @@
 {% load static %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
-
-        <div class="section-content">
-          <div class="row">
-            <div class="col-sm-{{ value.sm }} col-md-{{ value.md }}">
-              <div class="team box-hover-effect effect3 border-1px border-bottom-theme-color-2px sm-text-center maxwidth400 mb-sm-30">
-                <div class="thumb">
-                    {% image value.photo fill-270x270 class="img-fullwidth" %}
-{#                    <img class="img-fullwidth" src="{{  tmp_photo.url }}" alt=""></div>#}
-{#              <div class="thumb"><img class="img-fullwidth" src="http://placehold.it/270x270" alt=""></div>#}
-                <div class="content p-20 bg-white text-center">
-                  <h4 class="name mb-0 mt-0"><a class="text-theme-colored" href="#">{{ value.full_name }}</a></h4>
-                  <p>{{ value.role }}</p>
-                  <p class="mb-20 font-1">{{ value.write_up }}</p>
-                  <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
-                    {% if value.facebook %}<li><a href="{{ facebook }}"><i class="fa fa-facebook"></i></a></li> {% endif %}
-                    {% if value.twitter %}<li><a href="{{ twitter }}"><i class="fa fa-twitter"></i></a></li>{% endif %}
-                    {% if value.linkedin %}<li><a href="{{ linkedin }}"><i class="fa fa-linkedin"></i></a></li>{% endif %}
-                    {% if value.skype %}<li><a href="{{ skype }}"><i class="fa fa-skype"></i></a></li>{% endif %}
-                  </ul>
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+        <div class="staff-card mb-40">
+            <div class="staff-card-img w_100 mb-25">
+                <a href="staff-details.html">
+                    {% image value.photo_276x300 fill-276x300 %}
+                </a>
+                <div class="kb-staff-card-social-share-1-1">
+                    <a href="#" class="staff-social-btn bg-3"><i class="icofont-plus"></i></a>
+                    {% if value.facebook %} <a href="value.facebook" class="staff-social-btn"><i class="icofont-facebook"></i></a> {% endif %}
+                    {% if value.linkedin %} <a href="{{ value.linkedin }}" class="staff-social-btn bg-1"><i class="icofont-twitter"></i></a>{% endif %}
+                    {% if value.twitter %} <a href="{{ value.twitter }}" class="staff-social-btn bg-2"><i class="icofont-pinterest"></i></a>{% endif %}
                 </div>
-              </div>
             </div>
+            <div class="part-txt d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <h3 class="staff-name"><a href="staff-details.html">{{value.full_name}}</a></h3>
+                    <p class="staff-position mb-0">{{ value.role}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

@@ -71,28 +71,18 @@ class HomePage(Page):
     # max_count = 1
     # title = models.CharField(max_length=200)
     body = StreamField([
-        ('text_and_image_700x700', blocks.TextAndImage700x700(required=False)),
-        ('sponsors_slider_block', blocks.SponsorsSliderBlock(required=False)),
-        ('blurbs_horizontal_block', blocks.BlurbsHorizontalBlock(required=False)),
-        # ('blurbs_horizontal_left_aligned_block', blocks.BlurbsHorizontalLeftAlignedBlock(required=False)),
-        # ('blurbs_horizontal_centered_block', blocks.BlurbsHorizontalCenteredBlock(required=False)),
-        ('photo_gallery_block', blocks.PhotoGalleryBlock(required=False)),
-        ('events_slider_block', blocks.EventsSliderBlock(required=False)),
-        ('events_block', blocks.EventsBlock(required=False)),
-        ('causes_slider_block', blocks.CausesSliderBlock(required=False)),
-        ('causes_block', blocks.CausesBlock(required=False)),
-        ('testimonials_block', blocks.TestimonialsBlock(required=False)),
-        ('people_block', blocks.PeopleBlock(required=False)),
+        ('richtext_block', blocks.RichTextBlock(required=False)),
+        ('Services_block', blocks.ServiceBlock(required=False)),
+        ('left_image_and_text_block', blocks.Image480x700LeftTextRightBlock(required=False)),
+        ('two_images_left_and_text_right_block', blocks.TwoImages650x682And290x300LeftTextRightBlock(required=False)),
         ('call_to_action_block', blocks.CallToActionBlock(required=False)),
-        ('call_to_action_full_width_block', blocks.CallToActionFullWidthBlock(required=False)),
-        ('blogs_block', blocks.BlogsBlock(required=False)),
+        ('people_block', blocks.PeopleBlock(required=False)),
+        ('sponsors_slider_block', blocks.SponsorsSliderBlock(required=False)),
         ('news_block', blocks.NewsBlock(required=False)),
-        # ('donation_block',blocks.DonationBlock(required=False),
-        ('main_banner_block', blocks.MainBannerBlock(required=False)),
-        ('main_banner_two_block', blocks.MainBannerTwoBlock(required=False)),
-        ('Secondary_banner_block', blocks.SecondaryBannerBlock(required=False)),
-        ('rich_text_block', blocks.RichTextBlock(required=False)),
-        ('statistics_block', blocks.StatisticsBlock(required=False)),
+        ('testimonial_block', blocks.TestimonialsBlock(required=False)),
+        ('blurb_block', blocks.BlurbsBlock(required=False)),
+        ('frequestly_asked_questions_block', blocks.FAQBlock(required=False)),
+
     ], use_json_field=True, collapsed=True,  blank=True, null=True)
 
     content_panels = Page.content_panels + [
@@ -121,30 +111,18 @@ class FlexPage(Page):
     )
 
     body = StreamField([
-        ('text_and_image_700x700', blocks.TextAndImage700x700(required=False)),
-        ('sponsors_slider_block', blocks.SponsorsSliderBlock(required=False)),
-        ('blurbs_horizontal_block', blocks.BlurbsHorizontalBlock(required=False)),
-        # ('blurbs_horizontal_left_aligned_block', blocks.BlurbsHorizontalLeftAlignedBlock(required=False)),
-        # ('blurbs_horizontal_centered_block', blocks.BlurbsHorizontalCenteredBlock(required=False)),
-        ('photo_gallery_block', blocks.PhotoGalleryBlock(required=False)),
-        ('events_slider_block', blocks.EventsSliderBlock(required=False)),
-        ('events_block', blocks.EventsBlock(required=False)),
-        ('causes_slider_block', blocks.CausesSliderBlock(required=False)),
-        ('causes_block', blocks.CausesBlock(required=False)),
-        ('testimonials_block', blocks.TestimonialsBlock(required=False)),
-        ('people_block', blocks.PeopleBlock(required=False)),
+        ('richtext_block', blocks.RichTextBlock(required=False)),
+        ('Services_block', blocks.ServiceBlock(required=False)),
+        ('left_image_and_text_block', blocks.Image480x700LeftTextRightBlock(required=False)),
+        ('two_images_left_and_text_right_block', blocks.TwoImages650x682And290x300LeftTextRightBlock(required=False)),
         ('call_to_action_block', blocks.CallToActionBlock(required=False)),
-        ('call_to_action_full_width_block', blocks.CallToActionFullWidthBlock(required=False)),
-        ('blogs_block', blocks.BlogsBlock(required=False)),
+        ('people_block', blocks.PeopleBlock(required=False)),
+        ('sponsors_slider_block', blocks.SponsorsSliderBlock(required=False)),
         ('news_block', blocks.NewsBlock(required=False)),
-        # ('donation_block',blocks.DonationBlock(required=False),
-        ('main_banner_block', blocks.MainBannerBlock(required=False)),
-        ('main_banner_two_block', blocks.MainBannerTwoBlock(required=False)),
-        ('Secondary_banner_block', blocks.SecondaryBannerBlock(required=False)),
-        ('rich_text_block', blocks.RichTextBlock(required=False)),
-        ('statistics_block', blocks.StatisticsBlock(required=False)),
+        ('testimonial_block', blocks.TestimonialsBlock(required=False)),
+        ('blurb_block', blocks.BlurbsBlock(required=False)),
 
-    ], use_json_field=True, blank=True, null=True)
+    ], use_json_field=True, collapsed=True, blank=True, null=True)
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)

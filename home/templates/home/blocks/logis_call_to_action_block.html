@@ -1,0 +1,27 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+
+ <!-- Call To Action Two -->
+    <section class="call-to-action-two" style="background-image: url(./images/background/7.jpg)">
+        <div class="auto-container">
+            <div class="sec-title light text-center mb-0">
+                <h1> {{ value.text }}</h1>
+                {% if value.button_label %}
+                <a href="{{ value.button_page_url.link }}" class="theme-btn btn-style-one"><span class="btn-title">{{value.button_label }}</span></a>
+                {% endif %}
+<!--                <a href="page-contact.html" class="theme-btn btn-style-three"><span class="btn-title">Get a free Quote</span></a>-->
+            </div>
+        </div>
+    </section>
+    <!--End Call To Action Two -->
+
+
+ {% endif %}

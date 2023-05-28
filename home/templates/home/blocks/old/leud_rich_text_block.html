@@ -1,0 +1,31 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+    <!-- about begin -->
+    <div class="pt-120 pb-120 bg-top-center general-padding"
+    {% if value.is_background_color %} style="background-color: {{ value.default_background }};"
+				 {% elif value.background_image_width_1920 %} style="background-image: url({{ bg_image.full_url }});" {% endif %}
+    >
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <h2 class="about-title mt--8 mb-25">{{ value.title}}</h2>
+                    <p class="mt--1 mb-35">{{ value.text }}</p>
+                    {% if value.label %}
+                    <div class="btn-box mt--3">
+                        <a href="{{ value.page_url }}" class="def-btn btn-2">{{ value.button_label }}</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about end -->
+
+
+{% endif %}

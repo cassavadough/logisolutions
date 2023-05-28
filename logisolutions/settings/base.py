@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "news",
+    "logis_theme",
+    # "service",
+    # "project",
 ]
 
 MIDDLEWARE = [
@@ -164,3 +168,7 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
+SITE=1
+
+# Don't add a trailing slash to Wagtail-served URLs
+WAGTAIL_APPEND_SLASH = False

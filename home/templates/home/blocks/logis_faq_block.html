@@ -1,0 +1,57 @@
+
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+  <!-- FAQ Section -->
+    <section class="faqs-section" style="background-image: url(./images/background/2.jpg)">
+        <div class="auto-container">
+            <div class="row">
+                <!-- FAQ Column -->
+                <div class="faq-column col-lg-6 col-md-12 col-sm-12 order-4">
+                    <div class="inner-column">
+
+
+                        <ul class="accordion-box wow fadeInRight">
+                            <!--Block-->
+                            {% for asked in value.faq_items %}
+                            <li class="accordion block ">
+                                <div class="acc-btn {% if forloop.first %} active {% endif %}"> {{ asked.question }}
+                                    <div class="icon fa fa-plus"></div>
+                                </div>
+                                <div class="acc-content {% if forloop.first %} current {% endif %}">
+                                    <div class="content">
+                                        <div class="text">{{ asked.answer }}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            <!--Block-->
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="sec-title">
+                            <span class="sub-title">{{ value.pre_title }}</span>
+                            <h2>{{ value.title }}</h2>
+                            {{value.text}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End FAQ Section -->
+
+{% endif %}

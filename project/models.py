@@ -16,7 +16,7 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 from wagtail.snippets.models import register_snippet
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
+from home import blocks
 
 @register_snippet
 class ProjectCategory(models.Model):
@@ -51,7 +51,7 @@ class ProjectIndexPage(Page):
         FieldPanel('intro'),
         FieldPanel('banner_image'),
     ]
-    subpage_types = ['project.ProjectPage']
+    # subpage_types = ['project.ProjectPage']
 
     template = 'shared_templates/index_page_template.html'
 
@@ -96,13 +96,13 @@ class ProjectPage(Page):
     parent_page_types = ['project.ProjectIndexPage']
     page_description = "Use this page for all Project Pages"
     # author = models.CharField(max_length=50, null=True, blank=True)
-    start_date = models.DateField(verbose_name='Start Date & Time',default=datetime.datetime.now)
-    completion_date = models.DateField(verbose_name="End Date & Time",default=datetime.datetime.now)
-    intro = models.CharField(max_length=120)
+    project_date = models.DateField(verbose_name='Start Date & Time',default=datetime.datetime.now)
+    completion_date = models.DateField(verbose_name="End Date & Time",default=datetime.datetime.now,required=False)
+    # intro = models.CharField(max_length=120)
     client = models.CharField(max_length=120)
     website = models.CharField(max_length=120)
     location = models.CharField(max_length=120)
-    on_front_page = models.BooleanField(default=False, null=True, blank=True)
+    # on_front_page = models.BooleanField(default=False, null=True, blank=True)
     feature_image_list_370x570 = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',
         null=True, blank=True
@@ -111,31 +111,32 @@ class ProjectPage(Page):
         'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',
         null=True, blank=True
     )
-    body = RichTextField(blank=True)
+    body = StreamField([
+        ('richtext_block', blocks.RichTextBlock(required=False)),
+
+    ], use_json_field=True, collapsed=True, blank=True, null=True)
     tags = ClusterTaggableManager(through=ProjectPageTag, blank=True)
     categories = ParentalManyToManyField('project.ProjectCategory', blank=True)
 
-
     content_panels = Page.content_panels + [
-        FieldPanel('intro'),
-        FieldPanel('start_date'),
+        FieldPanel('project_date'),
         FieldPanel('completion_date'),
+        FieldPanel('client'),
+        FieldPanel('website'),
+        FieldPanel('location'),
+        FieldPanel('feature_image_list_370x570'),
+        FieldPanel('feature_image_detail_1300x650'),
         FieldPanel('body'),
-        FieldPanel('goal'),
-        FieldPanel('achieved'),
-        FieldPanel('start_month'),
-        FieldPanel('start_day'),
-        # FieldPanel('on_front_page'),
-        FieldPanel('feature_image_570x400'),
-        # FieldPanel('on_front_page'),
-        InlinePanel('gallery_images', label="Gallery images"),
+        FieldPanel('tags'),
+        FieldPanel('categories'),
+
     ]
+    #
+    # parent_page_types = ['project.ProjectIndexPage']
 
-    parent_page_types = ['project.ProjectIndexPage']
-
-    # class Meta:
-    #     verbose_name = "Project Page"
-    template = 'shared_templates/page_template.html'
+    class Meta:
+        verbose_name = "Project Page"
+        template = 'shared_templates/page_template.html'
 
     def get_context(self, request, *args, **kwargs):
         """Adding custom stuff to our context."""

@@ -1,0 +1,87 @@
+
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+<!-- Work Section -->
+<section class="work-section pt-4">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <span class="sub-title"> {{ value.pre_title}}</span>
+            <h2>{{ value.title }}</h2>
+        </div>
+
+        <div class="row">
+            <!-- Work Block -->
+            {% for blurb in value.blurbs %}
+            <div class="work-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="content-box">
+                        <i class="{{ blurb.icon_120x120 }}"></i>
+                        <h4><a href="#">{{ blurb.title }}</a></h4>
+                        <div class="text">{{ blurb.text }}</div>
+                    </div>
+                    <a href="{{ blurb.page_url}}" class="process-btn">
+<!--                        <span class="count"><span>01</span></span>-->
+                        <span class="btn-title">More Detail</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+
+<!--            &lt;!&ndash; Work Block &ndash;&gt;-->
+<!--            <div class="work-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="300ms">-->
+<!--                <div class="inner-box">-->
+<!--                    <div class="content-box">-->
+<!--                        <i class="icon flaticon-distribution-center-1"></i>-->
+<!--                        <h4><a href="#">Warehousing Operation</a></h4>-->
+<!--                        <div class="text">Dolores molestias excepturi occaecati cupiditated non provident quas.</div>-->
+<!--                    </div>-->
+<!--                    <a href="page-project-details.html" class="process-btn">-->
+<!--                        <span class="count"><span>02</span></span>-->
+<!--                        <span class="btn-title">More Detail</span>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Work Block &ndash;&gt;-->
+<!--            <div class="work-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="600ms">-->
+<!--                <div class="inner-box">-->
+<!--                    <div class="content-box">-->
+<!--                        <i class="icon flaticon-distribution-center-2"></i>-->
+<!--                        <h4><a href="#">Packaging and Distribution</a></h4>-->
+<!--                        <div class="text">Dolores molestias excepturi occaecati cupiditated non provident quas.</div>-->
+<!--                    </div>-->
+<!--                    <a href="page-project-details.html" class="process-btn">-->
+<!--                        <span class="count"><span>03</span></span>-->
+<!--                        <span class="btn-title">More Detail</span>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Work Block &ndash;&gt;-->
+<!--            <div class="work-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="900ms">-->
+<!--                <div class="inner-box">-->
+<!--                    <div class="content-box">-->
+<!--                        <i class="icon flaticon-flow"></i>-->
+<!--                        <h4><a href="#">Transportation Process</a></h4>-->
+<!--                        <div class="text">Dolores molestias excepturi occaecati cupiditated non provident quas.</div>-->
+<!--                    </div>-->
+<!--                    <a href="page-project-details.html" class="process-btn">-->
+<!--                        <span class="count"><span>04</span></span>-->
+<!--                        <span class="btn-title">More Detail</span>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+        </div>
+    </div>
+</section>
+<!-- End Work Section -->
+
+{% endif %}

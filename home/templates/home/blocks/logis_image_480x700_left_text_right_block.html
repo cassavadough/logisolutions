@@ -1,0 +1,50 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+
+  <!-- About Section Two -->
+    <section class="about-section-two">
+        <div class="auto-container">
+            <div class="row">
+                <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+                    <div class="inner-column">
+                        <div class="sec-title">
+                            <span class="sub-title"> {{ value.pre_title }}</span>
+                            <h2>Logixs providing a reliable services</h2>
+                            <div class="text"> {{ value.text}}</div>
+                        </div>
+
+                        {% if value.button_label %}
+                        <a href="{{ value.button_page_url.link }}" class="theme-btn btn-style-one"><span class="btn-title">{{value.button_label }}</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <figure class="image">
+                            {% image value.image_480x700 fill-480x700 %}
+<!--                            <img src="https://via.placeholder.com/480x700" alt="">-->
+                        </figure>
+<!--                        <div class="experience">-->
+<!--                            <div class="inner">-->
+<!--                                <i class="icon flaticon-partnership"></i>-->
+<!--                                <strong>960</strong>-->
+<!--                                <p>Successful <br>Projects</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Emd About Section -->
+ {% endif %}

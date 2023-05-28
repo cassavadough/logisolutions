@@ -1,0 +1,34 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if value.visible %}
+{% if value.background_image_width_1920 %}
+    {% image value.background_image_width_1920 width-1920 as bg_image %}
+{% endif %}
+
+
+<!--Blog Details Start-->
+<section class="blog-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <div class="blog-details__left">
+
+                    <div class="blog-details__content">
+                <div class="text">
+                           <h3> {{ value.title }} </h3>
+                        </div>
+<!--                        <h3 class="blog-details__title">{{ value.title }}</h3>-->
+                        {{ value.text }}
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--Blog Details End-->
+
+{% endif %}
